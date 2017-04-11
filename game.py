@@ -1,3 +1,5 @@
+from board import Board
+
 class Game:
     def __init__(self):
         self.board = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
@@ -12,9 +14,9 @@ class Game:
                          self.board[6], self.board[7], self.board[8])
         print "Enter [0-8]:"
         # loop through until the game was won or tied
-        while not self.game_is_over(self.board) and not self.tie(self.board):
+        while not self.game_is_over(self.board) and not self.is_tie(self.board):
             self.get_human_spot()
-            if not self.game_is_over(self.board) and not self.tie(self.board):
+            if not self.game_is_over(self.board) and not self.is_tie(self.board):
                 self.eval_board()
 
             print " %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n" % \
@@ -84,8 +86,9 @@ class Game:
                 self.three_in_a_row(b[0], b[4], b[8]) == 1 or \
                 self.three_in_a_row(b[2], b[4], b[6]) == 1
 
-    def tie(self, b):
-        return len([s for s in b if s == "X" or s == "O"]) == 9
+    def is_tie(self, b):
+        board = Board(b)
+        return board.is_full()
 
 if __name__ == '__main__':
     game = Game()
