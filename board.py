@@ -10,3 +10,9 @@ class Board(object):
 				if flat_cell == 'O' or flat_cell == 'X':
 					self.board_cells[i][j] = flat_cell
 
+	def is_full(self):
+		for row in self.board_cells:
+			for cell in row:
+				if cell == None:
+					return False
+		return True
