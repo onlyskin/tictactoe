@@ -8,10 +8,8 @@ class Game:
 
     def start_game(self):
         # start by printing the board
-        print " %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n" % \
-                (self.board[0], self.board[1], self.board[2],
-                         self.board[3], self.board[4], self.board[5],
-                         self.board[6], self.board[7], self.board[8])
+        b = Board(self.board)
+        print b
         print "Enter [0-8]:"
         # loop through until the game was won or tied
         while not self.game_has_winner(self.board) and not self.is_tie(self.board):
@@ -19,10 +17,8 @@ class Game:
             if not self.game_has_winner(self.board) and not self.is_tie(self.board):
                 self.eval_board()
 
-            print " %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n" % \
-                    (self.board[0], self.board[1], self.board[2],
-                             self.board[3], self.board[4], self.board[5],
-                             self.board[6], self.board[7], self.board[8])
+            b = Board(self.board)
+            print b
 
         print "Game over"
 

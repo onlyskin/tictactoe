@@ -10,6 +10,12 @@ class Board(object):
 				if flat_cell == 'O' or flat_cell == 'X':
 					self.board_cells[i][j] = flat_cell
 
+	def __str__(self):
+		flat = self.board_cells[0] + self.board_cells[1] + self.board_cells[2]
+		mapped = [i if cell is None else cell for i, cell in enumerate(flat)]
+		return ' %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n' % \
+			tuple(mapped)
+
 	def is_full(self):
 		for row in self.board_cells:
 			for cell in row:
