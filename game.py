@@ -14,9 +14,9 @@ class Game:
                          self.board[6], self.board[7], self.board[8])
         print "Enter [0-8]:"
         # loop through until the game was won or tied
-        while not self.game_is_over(self.board) and not self.is_tie(self.board):
+        while not self.game_has_winner(self.board) and not self.is_tie(self.board):
             self.get_human_spot()
-            if not self.game_is_over(self.board) and not self.is_tie(self.board):
+            if not self.game_has_winner(self.board) and not self.is_tie(self.board):
                 self.eval_board()
 
             print " %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n" % \
@@ -54,13 +54,13 @@ class Game:
 
         for avail in available_spaces:
             board[int(avail)] = self.com
-            if self.game_is_over(board):
+            if self.game_has_winner(board):
                 best_move = int(avail)
                 board[int(avail)] = avail
                 return best_move
             else:
                 board[int(avail)] = self.hum
-                if self.game_is_over(board):
+                if self.game_has_winner(board):
                     best_move = int(avail)
                     board[int(avail)] = avail
                     return best_move
@@ -72,19 +72,9 @@ class Game:
         else:
             return int(available_spaces[0])
 
-    def three_in_a_row(self, *args):
-        return args[0] == args[1] == args[2] == "X" or \
-                args[0] == args[1] == args[2] == "O"
-
-    def game_is_over(self, b):
-        return self.three_in_a_row(b[0], b[1], b[2]) == 1 or \
-                self.three_in_a_row(b[3], b[4], b[5]) == 1 or \
-                self.three_in_a_row(b[6], b[7], b[8]) == 1 or \
-                self.three_in_a_row(b[0], b[3], b[6]) == 1 or \
-                self.three_in_a_row(b[1], b[4], b[7]) == 1 or \
-                self.three_in_a_row(b[2], b[5], b[8]) == 1 or \
-                self.three_in_a_row(b[0], b[4], b[8]) == 1 or \
-                self.three_in_a_row(b[2], b[4], b[6]) == 1
+    def game_has_winner(self, b):
+        board = Board(b)
+        return board.is_winner()
 
     def is_tie(self, b):
         board = Board(b)
