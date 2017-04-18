@@ -45,25 +45,26 @@ class Game:
                     spot = None
 
     def get_best_move(self, board, next_player, depth = 0, best_score = {}):
-        available_spaces = [s for s in board if s != "X" and s != "O"]
+        b = Board(board)
+        available_positions = b.get_available_positions()
         best_move = None
 
-        for avail in available_spaces:
+        for position in available_positions:
             b = Board(board)
-            moved_b = b.move(int(avail), self.com)
+            moved_b = b.move(position, self.com)
             if moved_b.is_winner():
-                best_move = int(avail)
+                best_move = position
                 return best_move
             else:
-                moved_b = b.move(int(avail), self.hum)
+                moved_b = b.move(position, self.hum)
                 if moved_b.is_winner():
-                    best_move = int(avail)
+                    best_move = position
                     return best_move
 
         if best_move:
             return best_move
         else:
-            return int(available_spaces[0])
+            return available_positions[0]
 
     def game_has_winner(self, b):
         board = Board(b)
