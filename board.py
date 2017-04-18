@@ -34,3 +34,12 @@ class Board(object):
 			if path[0] == path[1] == path[2] != None:
 				return True
 		return False
+
+	def move(self, position, marker):
+		flat = self.board_cells[0] + self.board_cells[1] + self.board_cells[2]
+		if flat[position] != None:
+			raise IndexError
+		new_board = Board(flat)
+		new_board.board_cells[position / 3][position % 3] = marker
+		return new_board
+
