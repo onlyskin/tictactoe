@@ -19,6 +19,9 @@ class Board(object):
 	def __getitem__(self, key):
 		return self.board_cells[key / 3][key % 3]
 
+	def __setitem__(self, key, value):
+		self.board_cells[key / 3][key % 3] = value
+
 	def is_full(self):
 		for row in self.board_cells:
 			for cell in row:
