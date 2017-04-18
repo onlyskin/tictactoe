@@ -43,3 +43,13 @@ class Board(object):
 		new_board.board_cells[position / 3][position % 3] = marker
 		return new_board
 
+	def get_available_positions(self):
+		result = []
+		flat = self.board_cells[0] + self.board_cells[1] + self.board_cells[2]
+		for i, cell in enumerate(flat):
+			if cell == None:
+				result.append(i)
+		return result
+
+
+
