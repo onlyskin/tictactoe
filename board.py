@@ -16,6 +16,9 @@ class Board(object):
 		return ' %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n' % \
 			tuple(mapped)
 
+	def __getitem__(self, key):
+		return self.board_cells[key / 3][key % 3]
+
 	def is_full(self):
 		for row in self.board_cells:
 			for cell in row:
