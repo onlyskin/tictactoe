@@ -49,19 +49,16 @@ class Game:
         best_move = None
 
         for avail in available_spaces:
-            board[int(avail)] = self.com
-            if self.game_has_winner(board):
+            b = Board(board)
+            moved_b = b.move(int(avail), self.com)
+            if moved_b.is_winner():
                 best_move = int(avail)
-                board[int(avail)] = avail
                 return best_move
             else:
-                board[int(avail)] = self.hum
-                if self.game_has_winner(board):
+                moved_b = b.move(int(avail), self.hum)
+                if moved_b.is_winner():
                     best_move = int(avail)
-                    board[int(avail)] = avail
                     return best_move
-                else:
-                    board[int(avail)] = avail
 
         if best_move:
             return best_move
