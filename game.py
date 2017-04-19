@@ -1,5 +1,6 @@
 from board import Board
 from get_human_move import get_human_move
+from get_best_move import get_best_move
 
 class Game:
     def __init__(self):
@@ -32,33 +33,12 @@ class Game:
                 spot = 4
                 self.board[spot] = self.com
             else:
-                spot = self.get_best_move(self.board, self.com)
+                b = Board(self.board)
+                spot = get_best_move(b, self.com, self.hum)
                 if self.board[spot] != "X" and self.board[spot] != "O":
                     self.board[spot] = self.com
                 else:
                     spot = None
-
-    def get_best_move(self, board, next_player, depth = 0, best_score = {}):
-        b = Board(board)
-        available_positions = b.get_available_positions()
-        best_move = None
-
-        for position in available_positions:
-            b = Board(board)
-            moved_b = b.move(position, self.com)
-            if moved_b.is_winner():
-                best_move = position
-                return best_move
-            else:
-                moved_b = b.move(position, self.hum)
-                if moved_b.is_winner():
-                    best_move = position
-                    return best_move
-
-        if best_move:
-            return best_move
-        else:
-            return available_positions[0]
 
     def game_has_winner(self, b):
         board = Board(b)
