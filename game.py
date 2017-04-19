@@ -1,6 +1,6 @@
 from board import Board
 from get_human_move import get_human_move
-from get_best_move import get_best_move
+from get_computer_move import get_computer_move
 
 class Game:
     def __init__(self):
@@ -19,23 +19,14 @@ class Game:
             human_move = get_human_move(b)
             self.board[human_move] = self.hum
             if not self.game_has_winner() and not self.is_tie():
-                self.eval_board()
+                b = Board(self.board)
+                computer_move = get_computer_move(b, self.com, self.hum)
+                self.board[computer_move] = self.com
 
             b = Board(self.board)
             print b
 
         print "Game over"
-
-    def eval_board(self):
-        spot = None
-        while spot is None:
-            if self.board[4] == "4":
-                spot = 4
-                self.board[spot] = self.com
-            else:
-                b = Board(self.board)
-                spot = get_best_move(b, self.com, self.hum)
-                self.board[spot] = self.com
 
     def game_has_winner(self):
         board = Board(self.board)
