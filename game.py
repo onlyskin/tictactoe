@@ -35,10 +35,7 @@ class Game:
             else:
                 b = Board(self.board)
                 spot = get_best_move(b, self.com, self.hum)
-                if self.board[spot] != "X" and self.board[spot] != "O":
-                    self.board[spot] = self.com
-                else:
-                    spot = None
+                self.board[spot] = self.com
 
     def game_has_winner(self):
         board = Board(self.board)
