@@ -14,11 +14,11 @@ class Game:
         print b
         print "Enter [0-8]:"
         # loop through until the game was won or tied
-        while not self.game_has_winner(self.board) and not self.is_tie(self.board):
+        while not self.game_has_winner() and not self.is_tie():
             b = Board(self.board)
             human_move = get_human_move(b)
             self.board[human_move] = self.hum
-            if not self.game_has_winner(self.board) and not self.is_tie(self.board):
+            if not self.game_has_winner() and not self.is_tie():
                 self.eval_board()
 
             b = Board(self.board)
@@ -40,12 +40,12 @@ class Game:
                 else:
                     spot = None
 
-    def game_has_winner(self, b):
-        board = Board(b)
+    def game_has_winner(self):
+        board = Board(self.board)
         return board.is_winner()
 
-    def is_tie(self, b):
-        board = Board(b)
+    def is_tie(self):
+        board = Board(self.board)
         return board.is_full()
 
 if __name__ == '__main__':
