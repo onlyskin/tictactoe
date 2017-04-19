@@ -1,4 +1,5 @@
 from board import Board
+from get_human_move import get_human_move
 
 class Game:
     def __init__(self):
@@ -13,7 +14,8 @@ class Game:
         print "Enter [0-8]:"
         # loop through until the game was won or tied
         while not self.game_has_winner(self.board) and not self.is_tie(self.board):
-            human_move = self.get_human_move()
+            b = Board(self.board)
+            human_move = get_human_move(b)
             self.board[human_move] = self.hum
             if not self.game_has_winner(self.board) and not self.is_tie(self.board):
                 self.eval_board()
@@ -22,15 +24,6 @@ class Game:
             print b
 
         print "Game over"
-
-    def get_human_move(self):
-        spot = None
-        while spot is None:
-            spot = int(raw_input())
-            if self.board[spot] != "X" and self.board[spot] != "O":
-                return spot
-            else:
-                spot = None
 
     def eval_board(self):
         spot = None
