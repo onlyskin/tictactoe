@@ -17,14 +17,13 @@ class Game:
         self.UI.output_board(self.board)
         self.UI.output_string("Enter [0-8]:")
         # loop through until the game was won or tied
+        active_player = self.player1
+        opponent = self.player2
         while not self.game_has_winner() and not self.is_tie():
-            human_move = self.player1.get_move(self.UI, self.board, self.player2)
-            self.board = self.board.move(human_move, self.player1.marker)
+            move = active_player.get_move(self.UI, self.board, opponent)
+            self.board = self.board.move(move, active_player.marker)
             self.UI.output_board(self.board)
-            if not self.game_has_winner() and not self.is_tie():
-                computer_move = self.player2.get_move(self.UI, self.board, self.player1)
-                self.board = self.board.move(computer_move, self.player2.marker)
-                self.UI.output_board(self.board)
+            active_player, opponent = opponent, active_player
 
         self.UI.output_string("Game over")
 
