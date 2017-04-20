@@ -3,7 +3,7 @@ class HumanPlayer(object):
 	def __init__(self, marker):
 		self.marker = marker
 
-	def get_move(self, board, UI):
+	def get_move(self, UI, board, opponent):
 	    move = None
 	    available_positions = board.get_available_positions()
 	    while move is None:

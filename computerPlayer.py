@@ -5,5 +5,5 @@ class ComputerPlayer(object):
 	def __init__(self, marker):
 		self.marker = marker
 
-	def get_move(self, board, opposition_marker):
-		return get_best_move(board, self.marker, opposition_marker)
+	def get_move(self, UI, board, opponent):
+		return get_best_move(board, self.marker, opponent.marker)

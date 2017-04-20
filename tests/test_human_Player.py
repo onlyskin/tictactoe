@@ -12,7 +12,9 @@ def test_it_gets_3_first_time():
 	b = Board(_input)
 
 	human_player = HumanPlayer('O')
-	human_move = human_player.get_move(b, Console_UI)
+	opponent = HumanPlayer('X')
+
+	human_move = human_player.get_move(Console_UI, b, opponent)
 	assert human_move == 3
 
 def test_it_rejects_3_and_5_accepts_6():
@@ -22,6 +24,8 @@ def test_it_rejects_3_and_5_accepts_6():
 	b = Board(_input)
 
 	human_player = HumanPlayer('O')
-	human_move = human_player.get_move(b, Console_UI)
+	opponent = HumanPlayer('X')
+
+	human_move = human_player.get_move(Console_UI, b, opponent)
 	assert human_move == 6
 
