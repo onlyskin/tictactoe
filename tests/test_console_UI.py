@@ -19,7 +19,34 @@ def test_it_prints_board_to_stdout(capsys):
 	assert out == expected_stdout
 
 def test_it_gets_6_from_stdin():
-	sys.stdin = open('mock/Console_UI_stdin', 'r')
+	sys.stdin = open('mock/get_input_integer', 'r')
 	test_input = Console_UI.get_input_integer()
 	assert test_input == 3
+
+def test_it_gets_h_from_stdin():
+	sys.stdin = open('mock/get_player_type_stdin_1', 'r')
+	test_input = Console_UI.get_player_type()
+	assert test_input == 'h'
+
+def test_it_gets_c_from_stdin():
+	sys.stdin = open('mock/get_player_type_stdin_2', 'r')
+	test_input = Console_UI.get_player_type()
+	assert test_input == 'c'
+
+def test_it_gets_Z_from_stdin():
+	sys.stdin = open('mock/get_player_marker_stdin_1', 'r')
+	test_input = Console_UI.get_player_marker()
+	assert test_input == 'Z'
+
+def test_it_gets_Y_from_stdin():
+	sys.stdin = open('mock/get_player_marker_stdin_2', 'r')
+	test_input = Console_UI.get_player_marker()
+	assert test_input == 'Y'
+
+def test_it_gets_A_from_stdin():
+	sys.stdin = open('mock/get_player_stdin', 'r')
+	player = Console_UI.get_player()
+	assert player.marker == 'A'
+
+
 
