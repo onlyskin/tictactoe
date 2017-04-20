@@ -31,8 +31,17 @@ class Game:
     def is_tie(self):
         return self.board.is_full()
 
+
+class GameMaker(object):
+    def __init__(self, UI):
+        self.UI = UI
+
+    def make_game(self):
+        player1, player2 = self.UI.get_players()
+        game = Game(self.UI, player1, player2)
+        return game
+
 if __name__ == '__main__':
-    player1 = HumanPlayer("O")
-    player2 = ComputerPlayer("X")
-    game = Game(Console_UI, player1, player2)
+    consoleGameMaker = GameMaker(Console_UI)
+    game = consoleGameMaker.make_game()
     game.start_game()
