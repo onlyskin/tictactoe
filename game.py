@@ -20,11 +20,11 @@ class Game:
         while not self.game_has_winner() and not self.is_tie():
             human_move = self.player1.get_move(self.UI, self.board, self.player2)
             self.board = self.board.move(human_move, self.player1.marker)
+            self.UI.output_board(self.board)
             if not self.game_has_winner() and not self.is_tie():
                 computer_move = self.player2.get_move(self.UI, self.board, self.player1)
                 self.board = self.board.move(computer_move, self.player2.marker)
-
-            self.UI.output_board(self.board)
+                self.UI.output_board(self.board)
 
         self.UI.output_string("Game over")
 
