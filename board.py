@@ -22,6 +22,9 @@ class Board(object):
 	def __setitem__(self, key, value):
 		self.board_cells[key / 3][key % 3] = value
 
+	def __eq__(self, board2):
+		return self.board_cells == board2.board_cells
+
 	def is_full(self):
 		for row in self.board_cells:
 			for cell in row:
