@@ -5,11 +5,15 @@ class Console_UI(object):
 
 	@staticmethod
 	def output_init_message():
-		print 'Welcome to Tic Tac Toe!'
+		print "Welcome to Tic Tac Toe!"
 
 	@staticmethod
-	def output_string(string):
-		print string
+	def output_play_instructions():
+		print "Enter [0-8]:"
+
+	@staticmethod
+	def output_end_message():
+		print "Game over"
 
 	@staticmethod
 	def output_board(board):

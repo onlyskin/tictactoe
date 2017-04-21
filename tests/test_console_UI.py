@@ -4,12 +4,6 @@ import sys
 from console_UI import Console_UI
 from board import Board
 
-def test_it_prints_string_to_stdout_with_newline(capsys):
-	test_string = 'testing'
-	Console_UI.output_string(test_string)
-	out, err = capsys.readouterr()
-	assert out == 'testing\n'
-
 def test_it_prints_board_to_stdout(capsys):
 	_input = [None, None, None, None, None, None, None, None, None]
 	b = Board(_input)

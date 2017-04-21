@@ -13,7 +13,7 @@ class Game:
     def start_game(self):
         # start by outputting the board
         self.UI.output_board(self.board)
-        self.UI.output_string("Enter [0-8]:")
+        self.UI.output_play_instructions()
         # loop through until the game was won or tied
         active_player = self.player1
         opponent = self.player2
@@ -23,7 +23,7 @@ class Game:
             self.UI.output_board(self.board)
             active_player, opponent = opponent, active_player
 
-        self.UI.output_string("Game over")
+        self.UI.output_end_message()
 
     def game_has_winner(self):
         return self.board.is_winner()
