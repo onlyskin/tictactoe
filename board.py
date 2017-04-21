@@ -1,6 +1,6 @@
 class Board(object):
 
-	def __init__(self, flat_board_array):
+	def __init__(self, flat_board_array=[None, None, None, None, None, None, None, None, None]):
 		self.board_cells = [[None, None, None],
 							[None, None, None],
 							[None, None, None]]
