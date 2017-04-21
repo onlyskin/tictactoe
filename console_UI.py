@@ -9,7 +9,7 @@ class Console_UI(object):
 
 	@staticmethod
 	def output_play_instructions():
-		print "Enter [0-8]:"
+		print "To play in a cell, enter [0-8]:"
 
 	@staticmethod
 	def output_start_game_message(board):
@@ -20,12 +20,12 @@ class Console_UI(object):
 
 	@staticmethod
 	def output_start_turn_message(player):
-		print '''Player "{}"'s turn:'''.format(player.marker)
+		print '''Player {}'s turn:'''.format(player.marker)
 
 	@staticmethod
 	def output_moved_message(player, move, board):
-		print '''Player "{}" moved in cell {}:'''.format(player.marker, move)
-        Console_UI.output_board(board)
+		print '''Player {} moved in cell {}:'''.format(player.marker, move)
+		Console_UI.output_board(board)
 
 	@staticmethod
 	def output_end_message():
