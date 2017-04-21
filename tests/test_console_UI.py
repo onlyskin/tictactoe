@@ -3,6 +3,7 @@ import sys
 
 from console_UI import Console_UI
 from board import Board
+from humanPlayer import HumanPlayer
 
 def test_it_prints_board_to_stdout(capsys):
 	_input = [None, None, None, None, None, None, None, None, None]
@@ -41,6 +42,16 @@ def test_it_gets_A_from_stdin():
 	sys.stdin = open('mock/get_player_stdin', 'r')
 	player = Console_UI.get_player()
 	assert player.marker == 'A'
+
+def test_it_prints_A_moved_in_4(capsys):
+	player = HumanPlayer('A')
+	move = 4
+	Console_UI.output_moved_message(player, move)
+	expected_stdout = 'Player "A" moved in cell 4.\n'
+	out, err = capsys.readouterr()
+	assert out == expected_stdout
+
+
 
 
 
