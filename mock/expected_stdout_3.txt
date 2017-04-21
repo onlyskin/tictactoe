@@ -1,3 +1,10 @@
+Welcome to Tic Tac Toe!
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:
+
+Initial board:
  0 | 1 | 2 
 ===+===+===
  3 | 4 | 5 
@@ -5,40 +12,46 @@
  6 | 7 | 8 
 
 Enter [0-8]:
- O | 1 | 2 
+Player "!" moved in cell 0:
+ ! | 1 | 2 
 ===+===+===
  3 | 4 | 5 
 ===+===+===
  6 | 7 | 8 
 
- O | 1 | 2 
+Player "?" moved in cell 4:
+ ! | 1 | 2 
 ===+===+===
- 3 | X | 5 
-===+===+===
- 6 | 7 | 8 
-
- O | 1 | 2 
-===+===+===
- 3 | X | O 
+ 3 | ? | 5 
 ===+===+===
  6 | 7 | 8 
 
- O | X | 2 
+Player "!" moved in cell 5:
+ ! | 1 | 2 
 ===+===+===
- 3 | X | O 
-===+===+===
- 6 | 7 | 8 
-
- O | X | O 
-===+===+===
- 3 | X | O 
+ 3 | ? | ! 
 ===+===+===
  6 | 7 | 8 
 
- O | X | O 
+Player "?" moved in cell 1:
+ ! | ? | 2 
 ===+===+===
- 3 | X | O 
+ 3 | ? | ! 
 ===+===+===
- 6 | X | 8 
+ 6 | 7 | 8 
+
+Player "!" moved in cell 2:
+ ! | ? | ! 
+===+===+===
+ 3 | ? | ! 
+===+===+===
+ 6 | 7 | 8 
+
+Player "?" moved in cell 7:
+ ! | ? | ! 
+===+===+===
+ 3 | ? | ! 
+===+===+===
+ 6 | ? | 8 
 
 Game over

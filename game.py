@@ -12,14 +12,14 @@ class Game:
 
     def start_game(self):
         # start by outputting the board
-        self.UI.output_board(self.board)
-        self.UI.output_play_instructions()
+        self.UI.output_start_game_message(self.board)
         # loop through until the game was won or tied
         active_player = self.player1
         opponent = self.player2
         while not self.game_has_winner() and not self.is_tie():
             move = active_player.get_move(self.UI, self.board, opponent)
             self.board = self.board.move(move, active_player.marker)
+            self.UI.output_moved_message(active_player, move)
             self.UI.output_board(self.board)
             active_player, opponent = opponent, active_player
 
