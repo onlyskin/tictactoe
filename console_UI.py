@@ -19,8 +19,13 @@ class Console_UI(object):
 		Console_UI.output_play_instructions()
 
 	@staticmethod
-	def output_moved_message(player, move):
+	def output_start_turn_message(player):
+		print '''Player "{}"'s turn:'''.format(player.marker)
+
+	@staticmethod
+	def output_moved_message(player, move, board):
 		print '''Player "{}" moved in cell {}:'''.format(player.marker, move)
+        Console_UI.output_board(board)
 
 	@staticmethod
 	def output_end_message():

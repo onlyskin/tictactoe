@@ -51,6 +51,12 @@ def test_it_prints_A_moved_in_4(capsys):
 	out, err = capsys.readouterr()
 	assert out == expected_stdout
 
+def test_turn_start_message(capsys):
+	player = HumanPlayer('A')
+	Console_UI.output_turn_start_message(player)
+	expected_stdout = '''Player "A"'s turn:\n'''
+	out, err = capsys.readouterr()
+	assert out == expected_stdout
 
 
 

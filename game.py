@@ -17,10 +17,10 @@ class Game:
         active_player = self.player1
         opponent = self.player2
         while not self.game_has_winner() and not self.is_tie():
+            self.UI.output_start_turn_message(active_player)
             move = active_player.get_move(self.UI, self.board, opponent)
             self.board = self.board.move(move, active_player.marker)
-            self.UI.output_moved_message(active_player, move)
-            self.UI.output_board(self.board)
+            self.UI.output_moved_message(active_player, move, self.board)
             active_player, opponent = opponent, active_player
 
         self.UI.output_end_message()
