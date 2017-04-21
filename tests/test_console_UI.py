@@ -47,7 +47,7 @@ def test_it_prints_A_moved_in_4(capsys):
 	player = HumanPlayer('A')
 	move = 4
 	Console_UI.output_moved_message(player, move)
-	expected_stdout = 'Player "A" moved in cell 4.\n'
+	expected_stdout = 'Player "A" moved in cell 4:\n'
 	out, err = capsys.readouterr()
 	assert out == expected_stdout
 

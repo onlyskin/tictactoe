@@ -12,8 +12,15 @@ class Console_UI(object):
 		print "Enter [0-8]:"
 
 	@staticmethod
+	def output_start_game_message(board):
+		print
+		print "Initial board:"
+		Console_UI.output_board(board)
+		Console_UI.output_play_instructions()
+
+	@staticmethod
 	def output_moved_message(player, move):
-		print '''Player "{}" moved in cell {}.'''.format(player.marker, move)
+		print '''Player "{}" moved in cell {}:'''.format(player.marker, move)
 
 	@staticmethod
 	def output_end_message():
