@@ -11,64 +11,74 @@ Initial board:
 ===+===+===
  6 | 7 | 8 
 
-Enter [0-8]:
-Player "A" moved in cell 0:
+To play in a cell, enter [0-8]:
+
+Player A's turn:
+Player A moved in cell 0:
  A | 1 | 2 
 ===+===+===
  3 | 4 | 5 
 ===+===+===
  6 | 7 | 8 
 
-Player "B" moved in cell 4:
+Player B's turn:
+Player B moved in cell 4:
  A | 1 | 2 
 ===+===+===
  3 | B | 5 
 ===+===+===
  6 | 7 | 8 
 
-Player "A" moved in cell 6:
+Player A's turn:
+Player A moved in cell 6:
  A | 1 | 2 
 ===+===+===
  3 | B | 5 
 ===+===+===
  A | 7 | 8 
 
-Player "B" moved in cell 3:
+Player B's turn:
+Player B moved in cell 3:
  A | 1 | 2 
 ===+===+===
  B | B | 5 
 ===+===+===
  A | 7 | 8 
 
-Player "A" moved in cell 5:
+Player A's turn:
+Player A moved in cell 5:
  A | 1 | 2 
 ===+===+===
  B | B | A 
 ===+===+===
  A | 7 | 8 
 
-Player "B" moved in cell 1:
+Player B's turn:
+Player B moved in cell 1:
  A | B | 2 
 ===+===+===
  B | B | A 
 ===+===+===
  A | 7 | 8 
 
-Player "A" moved in cell 7:
+Player A's turn:
+Player A moved in cell 7:
  A | B | 2 
 ===+===+===
  B | B | A 
 ===+===+===
  A | A | 8 
 
-Player "B" moved in cell 8:
+Player B's turn:
+Player B moved in cell 8:
  A | B | 2 
 ===+===+===
  B | B | A 
 ===+===+===
  A | A | B 
 
-Player "A" moved in cell 2:
+Player A's turn:
+Player A moved in cell 2:
  A | B | A 
 ===+===+===
  B | B | A 
