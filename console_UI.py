@@ -4,6 +4,10 @@ from computerPlayer import ComputerPlayer
 class Console_UI(object):
 
 	@staticmethod
+	def output_init_message():
+		print 'Welcome to Tic Tac Toe!'
+
+	@staticmethod
 	def output_string(string):
 		print string
 

@@ -37,6 +37,7 @@ class GameMaker(object):
         self.UI = UI
 
     def make_game(self):
+        self.UI.output_init_message()
         player1, player2 = self.UI.get_players()
         game = Game(self.UI, player1, player2)
         return game
