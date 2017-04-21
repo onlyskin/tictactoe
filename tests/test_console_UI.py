@@ -11,7 +11,7 @@ def test_it_prints_string_to_stdout_with_newline(capsys):
 	assert out == 'testing\n'
 
 def test_it_prints_board_to_stdout(capsys):
-	_input = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
+	_input = [None, None, None, None, None, None, None, None, None]
 	b = Board(_input)
 	Console_UI.output_board(b)
 	expected_stdout = open('mock/Console_UI_stdout.txt', 'r').read()

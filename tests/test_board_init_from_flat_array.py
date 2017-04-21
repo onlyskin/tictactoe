@@ -3,7 +3,7 @@ import pytest
 from board import Board
 
 def test_board_cells_all_numbers():
-	_input = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
+	_input = [None, None, None, None, None, None, None, None, None]
 	expected = [[None, None, None],
 				[None, None, None],
 				[None, None, None]]
@@ -11,7 +11,7 @@ def test_board_cells_all_numbers():
 	assert b.board_cells == expected
 
 def test_board_cells_O_in_0():
-	_input = ['O', '1', '2', '3', '4', '5', '6', '7', '8']
+	_input = ['O', None, None, None, None, None, None, None, None]
 	expected = [['O', None, None],
 				[None, None, None],
 				[None, None, None]]
@@ -19,7 +19,7 @@ def test_board_cells_O_in_0():
 	assert b.board_cells == expected
 
 def test_board_cells_X_in_0():
-	_input = ['X', '1', '2', '3', '4', '5', '6', '7', '8']
+	_input = ['X', None, None, None, None, None, None, None, None]
 	expected = [['X', None, None],
 				[None, None, None],
 				[None, None, None]]
@@ -27,7 +27,7 @@ def test_board_cells_X_in_0():
 	assert b.board_cells == expected
 
 def test_board_cells_O_in_1():
-	_input = ['0', 'O', '2', '3', '4', '5', '6', '7', '8']
+	_input = [None, 'O', None, None, None, None, None, None, None]
 	expected = [[None, 'O', None],
 				[None, None, None],
 				[None, None, None]]
@@ -35,7 +35,7 @@ def test_board_cells_O_in_1():
 	assert b.board_cells == expected
 
 def test_board_cells_O_in_2():
-	_input = ['0', '1', 'O', '3', '4', '5', '6', '7', '8']
+	_input = [None, None, 'O', None, None, None, None, None, None]
 	expected = [[None, None, 'O'],
 				[None, None, None],
 				[None, None, None]]
@@ -43,7 +43,7 @@ def test_board_cells_O_in_2():
 	assert b.board_cells == expected
 
 def test_board_cells_O_in_3():
-	_input = ['0', '1', '2', 'O', '4', '5', '6', '7', '8']
+	_input = [None, None, None, 'O', None, None, None, None, None]
 	expected = [[None, None, None],
 				['O', None, None],
 				[None, None, None]]
@@ -51,7 +51,7 @@ def test_board_cells_O_in_3():
 	assert b.board_cells == expected
 
 def test_board_cells_X_in_5():
-	_input = ['0', '1', '2', '3', '4', 'X', '6', '7', '8']
+	_input = [None, None, None, None, None, 'X', None, None, None]
 	expected = [[None, None, None],
 				[None, None, 'X'],
 				[None, None, None]]
@@ -59,7 +59,7 @@ def test_board_cells_X_in_5():
 	assert b.board_cells == expected
 
 def test_board_cells_O_in_8():
-	_input = ['0', '1', '2', '3', '4', '5', '6', '7', 'O']
+	_input = [None, None, None, None, None, None, None, None, 'O']
 	expected = [[None, None, None],
 				[None, None, None],
 				[None, None, 'O']]

@@ -7,7 +7,7 @@ class Board(object):
 		for i, row in enumerate(self.board_cells):
 			for j, cell in enumerate(row):
 				flat_cell = flat_board_array[3 * i + j]
-				if flat_cell == 'O' or flat_cell == 'X':
+				if flat_cell != None:
 					self.board_cells[i][j] = flat_cell
 
 	def __str__(self):
