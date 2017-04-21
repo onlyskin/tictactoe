@@ -9,7 +9,7 @@ class Console_UI(object):
 
 	@staticmethod
 	def output_play_instructions():
-		print "To play in a cell, enter [0-8]:"
+		print "To play in a cell, enter [0-8]:\n"
 
 	@staticmethod
 	def output_start_game_message(board):
