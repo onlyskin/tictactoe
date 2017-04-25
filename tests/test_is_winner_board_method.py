@@ -38,7 +38,7 @@ def test_it_returns_true_when_top_row_all_O():
 	b = Board(['O', 'O', 'O', None, None, None, None, None, None])
 	assert b.is_winner()
 
-def test_it_returns_true_when_top_row_O_X_O():
+def test_it_returns_false_when_top_row_O_X_O():
 	b = Board(['O', 'X', 'O', None, None, None, None, None, None])
 	assert not b.is_winner()
 
@@ -46,7 +46,7 @@ def test_it_returns_true_when_second_row_all_O():
 	b = Board([None, None, None, 'O', 'O', 'O', None, None, None])
 	assert b.is_winner()
 
-def test_it_returns_true_when_second_row_O_X_O():
+def test_it_returns_false_when_second_row_O_X_O():
 	b = Board([None, None, None, 'O', 'X', 'O', None, None, None])
 	assert not b.is_winner()
 
@@ -54,7 +54,7 @@ def test_it_returns_true_when_bottom_row_all_O():
 	b = Board([None, None, None, None, None, None, 'O', 'O', 'O'])
 	assert b.is_winner()
 
-def test_it_returns_true_when_bottom_row_O_X_O():
+def test_it_returns_false_when_bottom_row_O_X_O():
 	b = Board([None, None, None, None, None, None, 'O', 'X', 'O'])
 	assert not b.is_winner()
 

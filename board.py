@@ -44,6 +44,20 @@ class Board(object):
 				return True
 		return False
 
+	def get_winner(self):
+		if not self.is_winner():
+			raise ValueError
+		b = self.board_cells
+		rows = b
+		columns = zip(*b)
+		diagonals = [[b[0][0], b[1][1], b[2][2]],
+					 [b[0][2], b[1][1], b[2][0]]]
+		win_paths = rows + columns + diagonals
+		for path in win_paths:
+			if path[0] == path[1] == path[2] != None:
+				return path[0]
+		return False
+
 	def move(self, position, marker):
 		flat = self.board_cells[0] + self.board_cells[1] + self.board_cells[2]
 		if flat[position] != None:
@@ -59,6 +73,3 @@ class Board(object):
 			if cell == None:
 				result.append(i)
 		return result
-
-
-
