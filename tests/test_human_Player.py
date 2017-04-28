@@ -1,9 +1,9 @@
 import pytest
 import sys
 
-from humanPlayer import HumanPlayer
+from human_player import HumanPlayer
 from board import Board
-from consoleUi import ConsoleUi
+from console_ui import ConsoleUi
 
 Ui = ConsoleUi()
 

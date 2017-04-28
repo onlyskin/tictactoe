@@ -2,8 +2,8 @@ import pytest
 import sys
 
 from game import GameMaker
-from consoleUi import ConsoleUi
-from humanPlayer import HumanPlayer
+from console_ui import ConsoleUi
+from human_player import HumanPlayer
 
 Ui = ConsoleUi()
 

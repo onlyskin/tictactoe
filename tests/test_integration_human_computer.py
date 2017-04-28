@@ -2,9 +2,9 @@ import pytest
 import sys
 
 from game import GameMaker
-from consoleUi import ConsoleUi
-from humanPlayer import HumanPlayer
-from computerPlayer import ComputerPlayer
+from console_ui import ConsoleUi
+from human_player import HumanPlayer
+from computer_player import ComputerPlayer
 
 Ui = ConsoleUi()
 

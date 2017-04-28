@@ -1,0 +1,12 @@
+from get_best_move import get_best_move
+from minimax import minimax
+
+class ComputerPlayer(object):
+
+	def __init__(self, marker):
+		self.marker = marker
+
+	def get_move(self, ui, board, opponent):
+		return get_best_move(board, self.marker, opponent.marker)
+		# best_node = minimax(board, self.marker, opponent.marker)
+		# return best_node.move

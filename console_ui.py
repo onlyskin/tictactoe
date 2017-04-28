@@ -1,5 +1,5 @@
-from humanPlayer import HumanPlayer
-from computerPlayer import ComputerPlayer
+from human_player import HumanPlayer
+from computer_player import ComputerPlayer
 
 class ConsoleUi(object):
 
