@@ -1,7 +1,7 @@
 from humanPlayer import HumanPlayer
 from computerPlayer import ComputerPlayer
 
-class Console_UI(object):
+class ConsoleUi(object):
 
 	@staticmethod
 	def output_init_message():
@@ -15,17 +15,17 @@ class Console_UI(object):
 	def output_start_game_message(board):
 		print
 		print "Initial board:"
-		Console_UI.output_board(board)
-		Console_UI.output_play_instructions()
+		ConsoleUi.output_board(board)
+		ConsoleUi.output_play_instructions()
 
 	@staticmethod
 	def output_start_turn_message(player):
-		print '''Player {}'s turn:'''.format(player.marker)
+		print "Player {}'s turn:".format(player.marker)
 
 	@staticmethod
 	def output_moved_message(player, move, board):
-		print '''Player {} moved in cell {}:'''.format(player.marker, move)
-		Console_UI.output_board(board)
+		print "Player {} moved in cell {}:".format(player.marker, move)
+		ConsoleUi.output_board(board)
 
 	@staticmethod
 	def output_end_message():
@@ -41,8 +41,8 @@ class Console_UI(object):
 
 	@staticmethod
 	def get_players():
-		player1 = Console_UI.get_player()
-		player2 = Console_UI.get_player()
+		player1 = ConsoleUi.get_player()
+		player2 = ConsoleUi.get_player()
 		return [player1, player2]
 
 	@staticmethod
@@ -63,8 +63,8 @@ class Console_UI(object):
 
 	@staticmethod
 	def get_player():
-		type = Console_UI.get_player_type()
-		marker = Console_UI.get_player_marker()
+		type = ConsoleUi.get_player_type()
+		marker = ConsoleUi.get_player_marker()
 		if type == 'h':
 			return HumanPlayer(marker)
 		else:
