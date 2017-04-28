@@ -2,10 +2,9 @@ import pytest
 
 from board import Board
 
-def test_it_returns_value_error_when_no_winner():
+def test_it_returns_false_when_no_winner():
 	b = Board([None, None, None, None, None, None, None, None, None])
-	with pytest.raises(ValueError):
-		b.get_winner()
+	assert not b.get_winner()
 
 def test_it_returns_X_when_left_column_all_X():
 	b = Board(['X', None, None, 'X', None, None, 'X', None, None])
