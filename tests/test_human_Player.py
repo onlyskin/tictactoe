@@ -5,6 +5,8 @@ from humanPlayer import HumanPlayer
 from board import Board
 from consoleUi import ConsoleUi
 
+Ui = ConsoleUi()
+
 def test_it_gets_3_first_time():
 	sys.stdin = open('mock/get_human_move_stdin_1', 'r')
 
@@ -14,7 +16,7 @@ def test_it_gets_3_first_time():
 	human_player = HumanPlayer('O')
 	opponent = HumanPlayer('X')
 
-	human_move = human_player.get_move(ConsoleUi, b, opponent)
+	human_move = human_player.get_move(Ui, b, opponent)
 	assert human_move == 3
 
 def test_it_rejects_3_and_5_accepts_6():
@@ -26,6 +28,6 @@ def test_it_rejects_3_and_5_accepts_6():
 	human_player = HumanPlayer('O')
 	opponent = HumanPlayer('X')
 
-	human_move = human_player.get_move(ConsoleUi, b, opponent)
+	human_move = human_player.get_move(Ui, b, opponent)
 	assert human_move == 6
 

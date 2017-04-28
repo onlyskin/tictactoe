@@ -1,11 +1,11 @@
 from board import Board
-from console_UI import Console_UI
+from consoleUi import ConsoleUi
 from humanPlayer import HumanPlayer
 from computerPlayer import ComputerPlayer
 
 class Game:
     def __init__(self, UI, player1, player2):
-        self.board = Board([None, None, None, None, None, None, None, None, None])
+        self.board = Board()
         self.UI = UI
         self.player1 = player1
         self.player2 = player2
@@ -43,6 +43,6 @@ class GameMaker(object):
         return game
 
 if __name__ == '__main__':
-    consoleGameMaker = GameMaker(Console_UI)
+    consoleGameMaker = GameMaker(ConsoleUi())
     game = consoleGameMaker.make_game()
     game.start_game()

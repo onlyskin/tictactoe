@@ -3,68 +3,56 @@ from computerPlayer import ComputerPlayer
 
 class ConsoleUi(object):
 
-	@staticmethod
-	def output_init_message():
+	def output_init_message(self):
 		print "Welcome to Tic Tac Toe!"
 
-	@staticmethod
-	def output_play_instructions():
+	def output_play_instructions(self):
 		print "To play in a cell, enter [0-8]:\n"
 
-	@staticmethod
-	def output_start_game_message(board):
+	def output_start_game_message(self, board):
 		print
 		print "Initial board:"
-		ConsoleUi.output_board(board)
-		ConsoleUi.output_play_instructions()
+		self.output_board(board)
+		self.output_play_instructions()
 
-	@staticmethod
-	def output_start_turn_message(player):
+	def output_start_turn_message(self, player):
 		print "Player {}'s turn:".format(player.marker)
 
-	@staticmethod
-	def output_moved_message(player, move, board):
+	def output_moved_message(self, player, move, board):
 		print "Player {} moved in cell {}:".format(player.marker, move)
-		ConsoleUi.output_board(board)
+		self.output_board(board)
 
-	@staticmethod
-	def output_end_message():
+	def output_end_message(self):
 		print "Game over"
 
-	@staticmethod
-	def output_board(board):
+	def output_board(self, board):
 		print board
 
-	@staticmethod
-	def get_input_integer():
+	def get_input_integer(self):
 		return int(raw_input())
 
-	@staticmethod
-	def get_players():
-		player1 = ConsoleUi.get_player()
-		player2 = ConsoleUi.get_player()
+	def get_players(self):
+		player1 = self.get_player()
+		player2 = self.get_player()
 		return [player1, player2]
 
-	@staticmethod
-	def get_player_type():
+	def get_player_type(self):
 		print "Choose player type [(h)uman or (c)omputer]:"
 		type = raw_input()
 		while type != 'h' and type != 'c':
 			type = raw_input()
 		return type
 
-	@staticmethod
-	def get_player_marker():
+	def get_player_marker(self):
 		print "Choose a symbol to represent this player:"
 		marker = raw_input()
 		while len(marker) != 1:
 			marker = raw_input()
 		return marker
 
-	@staticmethod
-	def get_player():
-		type = ConsoleUi.get_player_type()
-		marker = ConsoleUi.get_player_marker()
+	def get_player(self):
+		type = self.get_player_type()
+		marker = self.get_player_marker()
 		if type == 'h':
 			return HumanPlayer(marker)
 		else:
