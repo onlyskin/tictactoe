@@ -22,16 +22,21 @@ def get_score(board, active_player_marker):
 			return -10
 
 def minimax(node, active_player_marker, opponent_marker, depth=0):
-
-	# print '\t' * depth + 'exploring move ' + str(node.move)
+	if depth <= 1:
+		print 'active: ' + active_player_marker
+		print 'opponent: ' + opponent_marker
 	board = node.board
 
-	# print ('depth: ' + str(depth))
 	if board.is_winner() or board.is_full():
 		score = get_score(board, active_player_marker)
+		if depth <= 1:
+			print '\t' * depth + str(node.move) + ' scored ' + str(score)
+		# print board
 		return Node(score=score)
 
 	next_nodes = []
+	if depth == 0 or depth == 1:
+		print '\t' * depth + 'CHOICES:' + ' '.join(map(lambda x: str(x), board.get_available_positions()))
 	for position in board.get_available_positions():
 		if depth % 2 == 0:
 			new_board = board.move(position, active_player_marker)
@@ -39,24 +44,23 @@ def minimax(node, active_player_marker, opponent_marker, depth=0):
 			new_board = board.move(position, opponent_marker)
 		next_nodes.append(Node(board=new_board, move=position))
 	for node in next_nodes:
+		if depth == 0 or depth == 1:
+			print '\t' * depth + str(node.move)
 		score = minimax(node, active_player_marker, opponent_marker, depth + 1)
-		# print '\t' * depth + score.__str__()
 		node.score = score.score
 
-	# debugging printing
-	# for node in next_nodes:
-	# 	print '\t' * depth + node.__str__()
-	# print
-
-	#if depth == 0:
-	#	for node in next_nodes:
-	#		print node
+	if depth <= 1:
+		print '\t' * depth + 'final array:'
+		for node in next_nodes:
+			print '\t' * depth + node.__str__()
 
 	if depth % 2 == 0:
 		best_node = max(next_nodes, key=maxkey)
+		# print '\t' * depth + 'BEST:' + best_node.__str__()
 		return best_node
 	else:
 		best_node = min(next_nodes, key=maxkey)
+		# print '\t' * depth + 'BEST:' + best_node.__str__()
 		return best_node
 
 def minimax_on_board(board, active_player_marker, opponent_marker):
