@@ -57,7 +57,7 @@ class Board(object):
 			raise IndexError
 		flat = self.flatten()
 		new_board = Board(flat)
-		new_board.board_cells[position / 3][position % 3] = marker
+		new_board[position] = marker
 		return new_board
 
 	def get_available_positions(self):
