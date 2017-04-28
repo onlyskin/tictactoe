@@ -8,8 +8,7 @@ from humanPlayer import HumanPlayer
 Ui = ConsoleUi()
 
 def test_it_prints_board_to_stdout(capsys):
-	_input = [None, None, None, None, None, None, None, None, None]
-	b = Board(_input)
+	b = Board()
 	Ui.output_board(b)
 	expected_stdout = open('mock/Console_UI_stdout.txt', 'r').read()
 	out, err = capsys.readouterr()

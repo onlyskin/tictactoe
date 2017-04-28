@@ -10,8 +10,7 @@ Ui = ConsoleUi()
 def test_it_gets_3_first_time():
 	sys.stdin = open('mock/get_human_move_stdin_1', 'r')
 
-	_input = [None, None, None, None, None, None, None, None, None]
-	b = Board(_input)
+	b = Board()
 
 	human_player = HumanPlayer('O')
 	opponent = HumanPlayer('X')

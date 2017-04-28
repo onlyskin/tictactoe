@@ -66,3 +66,9 @@ def test_board_cells_O_in_8():
 	b = Board(_input)
 	assert b.board_cells == expected
 
+def test_board_can_init_from_no_argument():
+	expected = [[None, None, None],
+				[None, None, None],
+				[None, None, None]]
+	b = Board()
+	assert b.board_cells == expected

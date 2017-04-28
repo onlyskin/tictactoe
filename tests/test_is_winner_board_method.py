@@ -3,7 +3,7 @@ import pytest
 from board import Board
 
 def test_it_returns_false_when_empty():
-	b = Board([None, None, None, None, None, None, None, None, None])
+	b = Board()
 	assert not b.is_winner()
 
 def test_it_returns_true_when_left_column_all_X():

@@ -3,8 +3,7 @@ import pytest
 from board import Board
 
 def test_it_moves_X_in_0():
-	_input = [None, None, None, None, None, None, None, None, None]
-	b = Board(_input)
+	b = Board()
 	new_board = b.move(0, 'X')
 
 	expected = [['X', None, None],
@@ -14,8 +13,7 @@ def test_it_moves_X_in_0():
 	assert new_board.board_cells == expected
 
 def test_it_moves_O_in_0():
-	_input = [None, None, None, None, None, None, None, None, None]
-	b = Board(_input)
+	b = Board()
 	new_board = b.move(0, 'O')
 
 	expected = [['O', None, None],
@@ -25,8 +23,7 @@ def test_it_moves_O_in_0():
 	assert new_board.board_cells == expected
 
 def test_it_moves_X_in_1():
-	_input = [None, None, None, None, None, None, None, None, None]
-	b = Board(_input)
+	b = Board()
 	new_board = b.move(1, 'X')
 
 	expected = [[None, 'X', None],
@@ -36,8 +33,7 @@ def test_it_moves_X_in_1():
 	assert new_board.board_cells == expected
 
 def test_it_moves_X_in_2():
-	_input = [None, None, None, None, None, None, None, None, None]
-	b = Board(_input)
+	b = Board()
 	new_board = b.move(2, 'X')
 
 	expected = [[None, None, 'X'],
@@ -47,8 +43,7 @@ def test_it_moves_X_in_2():
 	assert new_board.board_cells == expected
 
 def test_it_moves_X_in_3():
-	_input = [None, None, None, None, None, None, None, None, None]
-	b = Board(_input)
+	b = Board()
 	new_board = b.move(3, 'X')
 
 	expected = [[None, None, None],
@@ -58,8 +53,7 @@ def test_it_moves_X_in_3():
 	assert new_board.board_cells == expected
 
 def test_it_moves_X_in_7():
-	_input = [None, None, None, None, None, None, None, None, None]
-	b = Board(_input)
+	b = Board()
 	new_board = b.move(7, 'X')
 
 	expected = [[None, None, None],

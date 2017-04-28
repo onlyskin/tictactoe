@@ -3,9 +3,8 @@ import pytest
 from board import Board
 
 def test_it_returns_string_when_all_empty():
-	_input = [None, None, None, None, None, None, None, None, None]
 	_output = ' 0 | 1 | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n'
-	b = Board(_input)
+	b = Board()
 	assert b.__str__() == _output
 
 def test_it_returns_string_when_0_X():
