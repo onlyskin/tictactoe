@@ -11,7 +11,7 @@ class Board(object):
 					self.board_cells[i][j] = flat_cell
 
 	def __str__(self):
-		flat = self.board_cells[0] + self.board_cells[1] + self.board_cells[2]
+		flat = self.flatten()
 		mapped = [i if cell is None else cell for i, cell in enumerate(flat)]
 		return ' %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n' % \
 			tuple(mapped)
@@ -24,6 +24,9 @@ class Board(object):
 
 	def __eq__(self, board2):
 		return self.board_cells == board2.board_cells
+
+	def flatten(self):
+		return self.board_cells[0] + self.board_cells[1] + self.board_cells[2]
 
 	def is_full(self):
 		for row in self.board_cells:
@@ -48,16 +51,16 @@ class Board(object):
 		return False
 
 	def move(self, position, marker):
-		flat = self.board_cells[0] + self.board_cells[1] + self.board_cells[2]
-		if flat[position] != None:
+		if position not in self.get_available_positions():
 			raise IndexError
+		flat = self.flatten()
 		new_board = Board(flat)
 		new_board.board_cells[position / 3][position % 3] = marker
 		return new_board
 
 	def get_available_positions(self):
 		result = []
-		flat = self.board_cells[0] + self.board_cells[1] + self.board_cells[2]
+		flat = self.flatten()
 		for i, cell in enumerate(flat):
 			if cell == None:
 				result.append(i)
