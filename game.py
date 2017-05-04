@@ -21,7 +21,7 @@ class Game(object):
             self.ui.output_moved_message(active_player, move, self.board)
             active_player, opponent = opponent, active_player
 
-        self.ui.output_end_message()
+        self.ui.output_end_message(self)
 
     def game_has_winner(self):
         return self.board.is_winner()
@@ -31,6 +31,9 @@ class Game(object):
 
     def game_is_over(self):
         return self.board.game_is_over()
+
+    def get_winner(self):
+        return self.board.get_winner()
 
 class GameMaker(object):
     def __init__(self, ui):

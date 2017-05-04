@@ -25,8 +25,12 @@ class ConsoleUi(object):
 	def output_move_not_available_message(self, move):
 		print "Cell {} is not available, please choose another move:".format(move)
 
-	def output_end_message(self):
-		print "Game over"
+	def output_end_message(self, game):
+		print "Game over!"
+		if game.is_tie():
+			print "The game was a draw."
+		else:
+			print "Player {} won.".format(game.get_winner())
 
 	def output_board(self, board):
 		print board
