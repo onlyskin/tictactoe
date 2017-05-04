@@ -57,10 +57,15 @@ def test_it_prints_A_moved_in_4(capsys):
 def test_turn_start_message(capsys):
 	player = HumanPlayer('A')
 	Ui.output_start_turn_message(player)
-	expected_stdout = '''Player A's turn:\n'''
+	expected_stdout = "Player A's turn:\n"
 	out, err = capsys.readouterr()
 	assert out == expected_stdout
 
+def test_move_not_available_message(capsys):
+	Ui.output_move_not_available_message(3)
+	expected_stdout = 'Cell 3 is not available, please choose another move:\n'
+	out, err = capsys.readouterr()
+	assert out == expected_stdout
 
 
 

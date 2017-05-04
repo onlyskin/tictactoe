@@ -1,0 +1,2 @@
+Cell 3 is not available, please choose another move:
+Cell 5 is not available, please choose another move:

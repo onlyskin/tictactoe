@@ -22,6 +22,9 @@ class ConsoleUi(object):
 		print "Player {} moved in cell {}:".format(player.marker, move)
 		self.output_board(board)
 
+	def output_move_not_available_message(self, move):
+		print "Cell {} is not available, please choose another move:".format(move)
+
 	def output_end_message(self):
 		print "Game over"
 
@@ -29,7 +32,14 @@ class ConsoleUi(object):
 		print board
 
 	def get_input_integer(self):
-		return int(raw_input())
+		user_input = raw_input()
+		try:
+			user_input = int(user_input)
+		except ValueError:
+			print 'Please enter a number.'
+			return self.get_input_integer()
+		else:
+			return user_input
 
 	def get_players(self):
 		player1 = self.get_player()

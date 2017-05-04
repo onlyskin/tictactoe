@@ -18,8 +18,9 @@ def test_it_gets_3_first_time():
 	human_move = human_player.get_move(Ui, b, opponent)
 	assert human_move == 3
 
-def test_it_rejects_3_and_5_accepts_6():
+def test_it_rejects_3_and_5_accepts_6(capsys):
 	sys.stdin = open('mock/get_human_move_stdin_2', 'r')
+	expected_stdout = open('mock/get_human_move_expected_stdout.txt', 'r').read()
 
 	_input = [None, None, None, 'X', 'X', 'O', None, None, None]
 	b = Board(_input)
@@ -28,5 +29,7 @@ def test_it_rejects_3_and_5_accepts_6():
 	opponent = HumanPlayer('X')
 
 	human_move = human_player.get_move(Ui, b, opponent)
-	assert human_move == 6
+
+	out, err = capsys.readouterr()
+	assert out == expected_stdout
 
