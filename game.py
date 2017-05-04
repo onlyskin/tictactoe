@@ -14,7 +14,7 @@ class Game(object):
         self.ui.output_start_game_message(self.board)
         active_player = self.player1
         opponent = self.player2
-        while not self.game_has_winner() and not self.is_tie():
+        while not self.game_is_over():
             self.ui.output_start_turn_message(active_player)
             move = active_player.get_move(self.ui, self.board, opponent)
             self.board = self.board.move(move, active_player.marker)
@@ -29,6 +29,8 @@ class Game(object):
     def is_tie(self):
         return self.board.is_tie()
 
+    def game_is_over(self):
+        return self.board.game_is_over()
 
 class GameMaker(object):
     def __init__(self, ui):

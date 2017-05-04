@@ -10,9 +10,9 @@ def maxkey(o):
 	return o.score
 
 def get_score(board, active_player_marker):
-	if not board.is_full() and not board.is_winner():
+	if not board.game_is_over():
 		raise ValueError
-	if board.is_full() and not board.is_winner():
+	if board.is_tie():
 		return 0
 	if board.is_winner():
 		if board.get_winner() == active_player_marker:
@@ -22,7 +22,7 @@ def get_score(board, active_player_marker):
 
 def minimax(board, active_player_marker, opponent_marker, depth=0):
 
-	if board.is_winner() or board.is_full():
+	if board.game_is_over():
 		score = get_score(board, active_player_marker)
 		return Node(score=score)
 
