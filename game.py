@@ -11,9 +11,7 @@ class Game(object):
         self.player2 = player2
 
     def start_game(self):
-        # start by outputting the board
         self.ui.output_start_game_message(self.board)
-        # loop through until the game was won or tied
         active_player = self.player1
         opponent = self.player2
         while not self.game_has_winner() and not self.is_tie():
@@ -29,7 +27,7 @@ class Game(object):
         return self.board.is_winner()
 
     def is_tie(self):
-        return self.board.is_full()
+        return self.board.is_tie()
 
 
 class GameMaker(object):

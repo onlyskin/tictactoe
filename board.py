@@ -52,6 +52,12 @@ class Board(object):
 				return path[0]
 		return False
 
+	def is_tie(self):
+		if self.is_full() and not self.is_winner():
+			return True
+		else:
+			return False
+
 	def move(self, position, marker):
 		if position not in self.get_available_positions():
 			raise IndexError
