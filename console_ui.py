@@ -48,7 +48,13 @@ class ConsoleUi(object):
 	def get_players(self):
 		player1 = self.get_player()
 		player2 = self.get_player()
-		return [player1, player2]
+		try:
+			assert player1.marker != player2.marker
+		except AssertionError:
+			print "\nYou must choose different symbols for each player.\nPlease try again:"
+			return self.get_players()
+		else:
+			return [player1, player2]
 
 	def get_player_type(self):
 		print "Choose player type [(h)uman or (c)omputer]:"
@@ -84,10 +90,4 @@ class ConsoleUi(object):
 				return [player1, player2]
 			else:
 				return [player2, player1]
-
-
-
-
-
-
 

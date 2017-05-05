@@ -1,0 +1,11 @@
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:
+
+You must choose different symbols for each player.
+Please try again:
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:

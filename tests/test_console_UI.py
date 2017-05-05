@@ -116,4 +116,10 @@ def test_get_players_in_order_rejects_X_accepts_A(capsys):
 	p2 = HumanPlayer('B')
 	assert ui.get_players_in_order(p1, p2) == [p2, p1]
 
+def test_get_player_rejects_when_same_symbol_chosen(capsys):
+	sys.stdin = open('mock/get_players_stdin', 'r')
+	expected_stdout = open('mock/get_players_stdout.txt', 'r').read()
+	ui.get_players()
+	out, err = capsys.readouterr()
+	assert out == expected_stdout
 
