@@ -61,4 +61,5 @@ Player ? moved in cell 7:
 ===+===+===
  6 | ? | 8 
 
-Game over
+Game over!
+Player ? won.

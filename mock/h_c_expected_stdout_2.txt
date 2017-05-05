@@ -85,4 +85,5 @@ Player A moved in cell 2:
 ===+===+===
  A | A | B 
 
-Game over
+Game over!
+The game was a draw.
