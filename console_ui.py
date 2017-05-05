@@ -71,3 +71,23 @@ class ConsoleUi(object):
 			return HumanPlayer(marker)
 		else:
 			return ComputerPlayer(marker)
+
+	def get_players_in_order(self, player1, player2):
+		print "Who should start, {} or {}?".format(player1.marker, player2.marker)
+		choice = raw_input()
+		try:
+			assert choice in map(lambda x: x.marker, [player1, player2])
+		except AssertionError:
+			return self.get_players_in_order(player1, player2)
+		else:
+			if choice == player1.marker:
+				return [player1, player2]
+			else:
+				return [player2, player1]
+
+
+
+
+
+
+

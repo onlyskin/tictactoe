@@ -3,6 +3,7 @@ Choose player type [(h)uman or (c)omputer]:
 Choose a symbol to represent this player:
 Choose player type [(h)uman or (c)omputer]:
 Choose a symbol to represent this player:
+Who should start, A or B?
 
 Initial board:
  0 | 1 | 2 

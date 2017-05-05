@@ -86,5 +86,34 @@ def test_end_message_when_player_X_win(capsys):
 	out, err = capsys.readouterr()
 	assert out == expected_stdout
 
+def test_get_players_in_order_stdout(capsys):
+	sys.stdin = open('mock/get_players_in_order_stdin_1', 'r')
+	expected_stdout = 'Who should start, A or B?\n'
+	p1 = HumanPlayer('A')
+	p2 = HumanPlayer('B')
+	ui.get_players_in_order(p1, p2)
+	out, err = capsys.readouterr()
+	assert out == expected_stdout
+
+def test_get_players_in_order_returns_B_then_A():
+	sys.stdin = open('mock/get_players_in_order_stdin_1', 'r')
+	p1 = HumanPlayer('A')
+	p2 = HumanPlayer('B')
+	assert ui.get_players_in_order(p1, p2) == [p2, p1]
+
+def test_get_players_in_order_asks_twice(capsys):
+	sys.stdin = open('mock/get_players_in_order_stdin_2', 'r')
+	expected_stdout = 'Who should start, A or B?\nWho should start, A or B?\n'
+	p1 = HumanPlayer('A')
+	p2 = HumanPlayer('B')
+	ui.get_players_in_order(p1, p2)
+	out, err = capsys.readouterr()
+	assert out == expected_stdout
+
+def test_get_players_in_order_rejects_X_accepts_A(capsys):
+	sys.stdin = open('mock/get_players_in_order_stdin_2', 'r')
+	p1 = HumanPlayer('A')
+	p2 = HumanPlayer('B')
+	assert ui.get_players_in_order(p1, p2) == [p2, p1]
 
 

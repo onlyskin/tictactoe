@@ -42,7 +42,8 @@ class GameMaker(object):
     def make_game(self):
         self.ui.output_init_message()
         player1, player2 = self.ui.get_players()
-        game = Game(self.ui, player1, player2)
+        players = self.ui.get_players_in_order(player1, player2)
+        game = Game(self.ui, *players)
         return game
 
 if __name__ == '__main__':
