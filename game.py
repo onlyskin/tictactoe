@@ -47,6 +47,6 @@ class GameMaker(object):
 		return game
 
 if __name__ == '__main__':
-	consoleGameMaker = GameMaker(ConsoleUi())
-	game = consoleGameMaker.make_game()
+	console_game_maker = GameMaker(ConsoleUi())
+	game = console_game_maker.make_game()
 	game.start_game()
