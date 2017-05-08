@@ -1,0 +1,92 @@
+Welcome to Tic Tac Toe!
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:
+Who should start, O or X?
+
+Initial board:
+ 0 | 1 | 2 
+===+===+===
+ 3 | 4 | 5 
+===+===+===
+ 6 | 7 | 8 
+
+To play in a cell, enter [0-8]:
+
+Player O's turn:
+Please enter a number.
+Player O moved in cell 4:
+ 0 | 1 | 2 
+===+===+===
+ 3 | O | 5 
+===+===+===
+ 6 | 7 | 8 
+
+Player X's turn:
+Player X moved in cell 0:
+ X | 1 | 2 
+===+===+===
+ 3 | O | 5 
+===+===+===
+ 6 | 7 | 8 
+
+Player O's turn:
+Please enter a number.
+Player O moved in cell 2:
+ X | 1 | O 
+===+===+===
+ 3 | O | 5 
+===+===+===
+ 6 | 7 | 8 
+
+Player X's turn:
+Player X moved in cell 6:
+ X | 1 | O 
+===+===+===
+ 3 | O | 5 
+===+===+===
+ X | 7 | 8 
+
+Player O's turn:
+Player O moved in cell 3:
+ X | 1 | O 
+===+===+===
+ O | O | 5 
+===+===+===
+ X | 7 | 8 
+
+Player X's turn:
+Player X moved in cell 5:
+ X | 1 | O 
+===+===+===
+ O | O | X 
+===+===+===
+ X | 7 | 8 
+
+Player O's turn:
+Player O moved in cell 7:
+ X | 1 | O 
+===+===+===
+ O | O | X 
+===+===+===
+ X | O | 8 
+
+Player X's turn:
+Player X moved in cell 1:
+ X | X | O 
+===+===+===
+ O | O | X 
+===+===+===
+ X | O | 8 
+
+Player O's turn:
+Player O moved in cell 8:
+ X | X | O 
+===+===+===
+ O | O | X 
+===+===+===
+ X | O | O 
+
+Game over!
+The game was a draw.

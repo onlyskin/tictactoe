@@ -44,7 +44,7 @@ def test_simulated_h_c_game_4_returns_expected_stdout(capsys):
 	out, err = capsys.readouterr()
 	assert out == expected_stdout
 
-def test_simulated_c_h_game_player_2_first_returns_expected_stdout(capsys):
+def test_simulated_c_h_game_player_2_goes_first(capsys):
 	sys.stdin = open('mock/h_c_simulated_stdin_5', 'r')
 	expected_stdout = open('mock/h_c_expected_stdout_5.txt', 'r').read()
 	consoleGameMaker = GameMaker(Ui)

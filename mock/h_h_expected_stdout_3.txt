@@ -1,0 +1,74 @@
+Welcome to Tic Tac Toe!
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:
+Choose player type [(h)uman or (c)omputer]:
+Choose a symbol to represent this player:
+Who should start, Y or Z?
+
+Initial board:
+ 0 | 1 | 2 
+===+===+===
+ 3 | 4 | 5 
+===+===+===
+ 6 | 7 | 8 
+
+To play in a cell, enter [0-8]:
+
+Player Z's turn:
+Player Z moved in cell 4:
+ 0 | 1 | 2 
+===+===+===
+ 3 | Z | 5 
+===+===+===
+ 6 | 7 | 8 
+
+Player Y's turn:
+Player Y moved in cell 3:
+ 0 | 1 | 2 
+===+===+===
+ Y | Z | 5 
+===+===+===
+ 6 | 7 | 8 
+
+Player Z's turn:
+Player Z moved in cell 0:
+ Z | 1 | 2 
+===+===+===
+ Y | Z | 5 
+===+===+===
+ 6 | 7 | 8 
+
+Player Y's turn:
+Player Y moved in cell 8:
+ Z | 1 | 2 
+===+===+===
+ Y | Z | 5 
+===+===+===
+ 6 | 7 | Y 
+
+Player Z's turn:
+Player Z moved in cell 2:
+ Z | 1 | Z 
+===+===+===
+ Y | Z | 5 
+===+===+===
+ 6 | 7 | Y 
+
+Player Y's turn:
+Player Y moved in cell 6:
+ Z | 1 | Z 
+===+===+===
+ Y | Z | 5 
+===+===+===
+ Y | 7 | Y 
+
+Player Z's turn:
+Player Z moved in cell 1:
+ Z | Z | Z 
+===+===+===
+ Y | Z | 5 
+===+===+===
+ Y | 7 | Y 
+
+Game over!
+Player Z won.

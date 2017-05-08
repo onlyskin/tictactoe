@@ -24,3 +24,12 @@ def test_simulated_h_h_game_2_returns_expected_stdout(capsys):
 	game.start_game()
 	out, err = capsys.readouterr()
 	assert out == expected_stdout
+
+def test_simulated_h_h_game_3_returns_expected_stdout(capsys):
+	sys.stdin = open('mock/h_h_simulated_stdin_3', 'r')
+	expected_stdout = open('mock/h_h_expected_stdout_3.txt', 'r').read()
+	consoleGameMaker = GameMaker(Ui)
+	game = consoleGameMaker.make_game()
+	game.start_game()
+	out, err = capsys.readouterr()
+	assert out == expected_stdout
