@@ -50,10 +50,7 @@ class Board(object):
 		return False
 
 	def is_tie(self):
-		if self.is_full() and not self.is_winner():
-			return True
-		else:
-			return False
+		return self.is_full() and not self.is_winner()
 
 	def game_is_over(self):
 		return self.is_winner() or self.is_tie()
