@@ -4,14 +4,14 @@ from computer_player import ComputerPlayer
 class ConsoleUi(object):
 
 	def output_init_message(self):
-		print "Welcome to Tic Tac Toe!"
+		print 'Welcome to Tic Tac Toe!'
 
 	def output_play_instructions(self):
-		print "To play in a cell, enter [0-8]:\n"
+		print 'To play in a cell, enter [0-8]:\n'
 
 	def output_start_game_message(self, board):
 		print
-		print "Initial board:"
+		print 'Initial board:'
 		self.output_board(board)
 		self.output_play_instructions()
 
@@ -19,18 +19,18 @@ class ConsoleUi(object):
 		print "Player {}'s turn:".format(player.marker)
 
 	def output_moved_message(self, player, move, board):
-		print "Player {} moved in cell {}:".format(player.marker, move)
+		print 'Player {} moved in cell {}:'.format(player.marker, move)
 		self.output_board(board)
 
 	def output_move_not_available_message(self, move):
-		print "Cell {} is not available, please choose another move:".format(move)
+		print 'Cell {} is not available, please choose another move:'.format(move)
 
 	def output_end_message(self, game):
-		print "Game over!"
+		print 'Game over!'
 		if game.is_tie():
-			print "The game was a draw."
+			print 'The game was a draw.'
 		else:
-			print "Player {} won.".format(game.get_winner())
+			print 'Player {} won.'.format(game.get_winner())
 
 	def output_board(self, board):
 		print board
@@ -51,20 +51,20 @@ class ConsoleUi(object):
 		try:
 			assert player1.marker != player2.marker
 		except AssertionError:
-			print "\nYou must choose different symbols for each player.\nPlease try again:"
+			print '\nYou must choose different symbols for each player.\nPlease try again:'
 			return self.get_players()
 		else:
 			return [player1, player2]
 
 	def get_player_type(self):
-		print "Choose player type [(h)uman or (c)omputer]:"
+		print 'Choose player type [(h)uman or (c)omputer]:'
 		type = raw_input()
 		while type != 'h' and type != 'c':
 			return self.get_player_type()
 		return type
 
 	def get_player_marker(self):
-		print "Choose a symbol to represent this player:"
+		print 'Choose a symbol to represent this player:'
 		marker = raw_input()
 		while len(marker) != 1:
 			marker = raw_input()
@@ -79,7 +79,7 @@ class ConsoleUi(object):
 			return ComputerPlayer(marker)
 
 	def get_players_in_order(self, player1, player2):
-		print "Who should start, {} or {}?".format(player1.marker, player2.marker)
+		print 'Who should start, {} or {}?'.format(player1.marker, player2.marker)
 		choice = raw_input()
 		try:
 			assert choice in map(lambda x: x.marker, [player1, player2])
