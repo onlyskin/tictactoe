@@ -9,6 +9,14 @@ class Board(object):
 		for i, cell in enumerate(flat_board_array):
 			self[i] = cell
 
+	@staticmethod
+	def from_board_cells(board_cells):
+		b = Board()
+		for i, row in enumerate(board_cells):
+			for j, cell in enumerate(row):
+				b.board_cells[i][j] = cell
+		return b
+
 	def __str__(self):
 		flat = self.flatten()
 		mapped = [i if cell is None else cell for i, cell in enumerate(flat)]
@@ -58,8 +66,7 @@ class Board(object):
 	def move(self, position, marker):
 		if position not in self.get_available_positions():
 			raise IndexError
-		flat = self.flatten()
-		new_board = Board(flat)
+		new_board = Board.from_board_cells(self.board_cells)
 		new_board[position] = marker
 		return new_board
 
