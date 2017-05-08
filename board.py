@@ -6,11 +6,8 @@ class Board(object):
 		self.board_cells = [[None, None, None],
 							[None, None, None],
 							[None, None, None]]
-		for i, row in enumerate(self.board_cells):
-			for j, cell in enumerate(row):
-				flat_cell = flat_board_array[3 * i + j]
-				if flat_cell != None:
-					self.board_cells[i][j] = flat_cell
+		for i, cell in enumerate(flat_board_array):
+			self[i] = cell
 
 	def __str__(self):
 		flat = self.flatten()
