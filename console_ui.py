@@ -60,7 +60,7 @@ class ConsoleUi(object):
 		print "Choose player type [(h)uman or (c)omputer]:"
 		type = raw_input()
 		while type != 'h' and type != 'c':
-			type = raw_input()
+			return self.get_player_type()
 		return type
 
 	def get_player_marker(self):
