@@ -1,4 +1,3 @@
-from get_best_move import get_best_move
 from minimax import minimax
 
 class ComputerPlayer(object):
