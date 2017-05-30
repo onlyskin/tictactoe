@@ -71,9 +71,6 @@ class Board(object):
         return new_board
 
     def get_available_positions(self):
-        result = []
         flat = self.flatten()
-        for i, cell in enumerate(flat):
-            if cell == None:
-                result.append(i)
-        return result
+        available_cells = [i for i, cell in enumerate(flat) if cell == None]
+        return available_cells
