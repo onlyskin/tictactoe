@@ -33,7 +33,10 @@ class ConsoleUi(object):
             print 'Player {} won.'.format(game.get_winner())
 
     def output_board(self, board):
-        print board
+        cells = board.flatten()
+        mapped = [i if cell is None else cell for i, cell in enumerate(cells)]
+        print ' %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n' % \
+            tuple(mapped)
 
     def get_input_integer(self):
         user_input = raw_input()

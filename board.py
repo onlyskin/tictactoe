@@ -17,12 +17,6 @@ class Board(object):
                 b.board_cells[i][j] = cell
         return b
 
-    def __str__(self):
-        flat = self.flatten()
-        mapped = [i if cell is None else cell for i, cell in enumerate(flat)]
-        return ' %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n' % \
-            tuple(mapped)
-
     def __getitem__(self, key):
         return self.board_cells[key / 3][key % 3]
 

@@ -123,3 +123,58 @@ def test_get_player_rejects_when_same_symbol_chosen(capsys):
     out, err = capsys.readouterr()
     assert out == expected_stdout
 
+def test_output_board_returns_string_when_all_empty(capsys):
+    expected_stdout = ' 0 | 1 | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
+    b = Board()
+    ui.output_board(b)
+    out, err = capsys.readouterr()
+    assert out == expected_stdout
+
+def test_output_board_returns_string_when_0_X(capsys):
+    _input = ['X', None, None, None, None, None, None, None, None]
+    expected_stdout = ' X | 1 | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
+    b = Board(_input)
+    ui.output_board(b)
+    out, err = capsys.readouterr()
+    assert out == expected_stdout
+
+def test_output_board_returns_string_when_1_X(capsys):
+    _input = [None, 'X', None, None, None, None, None, None, None]
+    expected_stdout = ' 0 | X | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
+    b = Board(_input)
+    ui.output_board(b)
+    out, err = capsys.readouterr()
+    assert out == expected_stdout
+
+def test_output_board_returns_string_when_2_X(capsys):
+    _input = [None, None, 'X', None, None, None, None, None, None]
+    expected_stdout = ' 0 | 1 | X \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
+    b = Board(_input)
+    ui.output_board(b)
+    out, err = capsys.readouterr()
+    assert out == expected_stdout
+
+def test_output_board_returns_string_when_3_O(capsys):
+    _input = [None, None, None, 'O', None, None, None, None, None]
+    expected_stdout = ' 0 | 1 | 2 \n===+===+===\n O | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
+    b = Board(_input)
+    ui.output_board(b)
+    out, err = capsys.readouterr()
+    assert out == expected_stdout
+
+def test_output_board_returns_string_when_8_O(capsys):
+    _input = [None, None, None, None, None, None, None, None, 'O']
+    expected_stdout = ' 0 | 1 | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | O \n\n'
+    b = Board(_input)
+    ui.output_board(b)
+    out, err = capsys.readouterr()
+    assert out == expected_stdout
+
+def test_output_board_returns_string_when_1_X_5_O(capsys):
+    _input = [None, 'X', None, None, None, 'O', None, None, None]
+    expected_stdout = ' 0 | X | 2 \n===+===+===\n 3 | 4 | O \n===+===+===\n 6 | 7 | 8 \n\n'
+    b = Board(_input)
+    ui.output_board(b)
+    out, err = capsys.readouterr()
+    assert out == expected_stdout
+
