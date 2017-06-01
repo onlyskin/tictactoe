@@ -77,7 +77,7 @@ class ConsoleUi(object):
         type = self.get_player_type()
         marker = self.get_player_marker()
         if type == 'h':
-            return HumanPlayer(marker)
+            return HumanPlayer(marker, self)
         else:
             return ComputerPlayer(marker)
 

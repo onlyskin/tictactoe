@@ -1,7 +1,5 @@
 from board import Board
 from console_ui import ConsoleUi
-from human_player import HumanPlayer
-from computer_player import ComputerPlayer
 
 class Game(object):
     def __init__(self, ui, player1, player2):
@@ -16,7 +14,7 @@ class Game(object):
         opponent = self.player2
         while not self.game_is_over():
             self.ui.output_start_turn_message(active_player)
-            move = active_player.get_move(self.ui, self.board, opponent)
+            move = active_player.get_move(self.board, opponent)
             self.board = self.board.move(move, active_player.marker)
             self.ui.output_moved_message(active_player, move, self.board)
             active_player, opponent = opponent, active_player

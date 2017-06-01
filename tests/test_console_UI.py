@@ -47,7 +47,7 @@ def test_it_gets_A_from_stdin():
 
 def test_it_prints_A_moved_in_4(capsys):
     b = Board()
-    player = HumanPlayer('A')
+    player = HumanPlayer('A', ui)
     move = 4
     b = b.move(move, player.marker)
     ui.output_moved_message(player, move, b)
@@ -56,7 +56,7 @@ def test_it_prints_A_moved_in_4(capsys):
     assert out == expected_stdout
 
 def test_turn_start_message(capsys):
-    player = HumanPlayer('A')
+    player = HumanPlayer('A', ui)
     ui.output_start_turn_message(player)
     expected_stdout = "Player A's turn:\n"
     out, err = capsys.readouterr()
@@ -89,31 +89,31 @@ def test_end_message_when_player_X_win(capsys):
 def test_get_players_in_order_stdout(capsys):
     sys.stdin = open('mock/get_players_in_order_stdin_1', 'r')
     expected_stdout = 'Who should start, A or B?\n'
-    p1 = HumanPlayer('A')
-    p2 = HumanPlayer('B')
+    p1 = HumanPlayer('A', ui)
+    p2 = HumanPlayer('B', ui)
     ui.get_players_in_order(p1, p2)
     out, err = capsys.readouterr()
     assert out == expected_stdout
 
 def test_get_players_in_order_returns_B_then_A():
     sys.stdin = open('mock/get_players_in_order_stdin_1', 'r')
-    p1 = HumanPlayer('A')
-    p2 = HumanPlayer('B')
+    p1 = HumanPlayer('A', ui)
+    p2 = HumanPlayer('B', ui)
     assert ui.get_players_in_order(p1, p2) == [p2, p1]
 
 def test_get_players_in_order_asks_twice(capsys):
     sys.stdin = open('mock/get_players_in_order_stdin_2', 'r')
     expected_stdout = 'Who should start, A or B?\nWho should start, A or B?\n'
-    p1 = HumanPlayer('A')
-    p2 = HumanPlayer('B')
+    p1 = HumanPlayer('A', ui)
+    p2 = HumanPlayer('B', ui)
     ui.get_players_in_order(p1, p2)
     out, err = capsys.readouterr()
     assert out == expected_stdout
 
 def test_get_players_in_order_rejects_X_accepts_A(capsys):
     sys.stdin = open('mock/get_players_in_order_stdin_2', 'r')
-    p1 = HumanPlayer('A')
-    p2 = HumanPlayer('B')
+    p1 = HumanPlayer('A', ui)
+    p2 = HumanPlayer('B', ui)
     assert ui.get_players_in_order(p1, p2) == [p2, p1]
 
 def test_get_player_rejects_when_same_symbol_chosen(capsys):
