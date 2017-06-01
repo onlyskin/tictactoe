@@ -74,7 +74,7 @@ def test_move_not_available_message():
 @patch('sys.stdout', StringIO())
 def test_end_message_when_draw():
     g = Game(ui, '', '')
-    g.board = Board(['O', 'X', 'X', 'X', 'X', 'O', 'O', 'O', 'X'])
+    g.board = Board([['O', 'X', 'X'], ['X', 'X', 'O'], ['O', 'O', 'X']])
     expected_stdout = 'Game over!\nThe game was a draw.\n'
     ui.output_end_message(g)
     assert sys.stdout.getvalue() == expected_stdout
@@ -82,7 +82,7 @@ def test_end_message_when_draw():
 @patch('sys.stdout', StringIO())
 def test_end_message_when_player_X_win():
     g = Game(ui, '', '')
-    g.board = Board(['X', 'O', 'X', 'O', 'O', 'X', 'O', 'X', 'X'])
+    g.board = Board([['X', 'O', 'X'], ['O', 'O', 'X'], ['O', 'X', 'X']])
     expected_stdout = 'Game over!\nPlayer X won.\n'
     ui.output_end_message(g)
     assert sys.stdout.getvalue() == expected_stdout
@@ -133,7 +133,7 @@ def test_output_board_returns_string_when_all_empty():
 
 @patch('sys.stdout', StringIO())
 def test_output_board_returns_string_when_0_X():
-    _input = ['X', None, None, None, None, None, None, None, None]
+    _input = [['X', None, None], [None, None, None], [None, None, None]]
     expected_stdout = ' X | 1 | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
     b = Board(_input)
     ui.output_board(b)
@@ -141,7 +141,7 @@ def test_output_board_returns_string_when_0_X():
 
 @patch('sys.stdout', StringIO())
 def test_output_board_returns_string_when_1_X():
-    _input = [None, 'X', None, None, None, None, None, None, None]
+    _input = [[None, 'X', None], [None, None, None], [None, None, None]]
     expected_stdout = ' 0 | X | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
     b = Board(_input)
     ui.output_board(b)
@@ -149,7 +149,7 @@ def test_output_board_returns_string_when_1_X():
 
 @patch('sys.stdout', StringIO())
 def test_output_board_returns_string_when_2_X():
-    _input = [None, None, 'X', None, None, None, None, None, None]
+    _input = [[None, None, 'X'], [None, None, None], [None, None, None]]
     expected_stdout = ' 0 | 1 | X \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
     b = Board(_input)
     ui.output_board(b)
@@ -157,7 +157,7 @@ def test_output_board_returns_string_when_2_X():
 
 @patch('sys.stdout', StringIO())
 def test_output_board_returns_string_when_3_O():
-    _input = [None, None, None, 'O', None, None, None, None, None]
+    _input = [[None, None, None], ['O', None, None], [None, None, None]]
     expected_stdout = ' 0 | 1 | 2 \n===+===+===\n O | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
     b = Board(_input)
     ui.output_board(b)
@@ -165,7 +165,7 @@ def test_output_board_returns_string_when_3_O():
 
 @patch('sys.stdout', StringIO())
 def test_output_board_returns_string_when_8_O():
-    _input = [None, None, None, None, None, None, None, None, 'O']
+    _input = [[None, None, None], [None, None, None], [None, None, 'O']]
     expected_stdout = ' 0 | 1 | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | O \n\n'
     b = Board(_input)
     ui.output_board(b)
@@ -173,7 +173,7 @@ def test_output_board_returns_string_when_8_O():
 
 @patch('sys.stdout', StringIO())
 def test_output_board_returns_string_when_1_X_5_O():
-    _input = [None, 'X', None, None, None, 'O', None, None, None]
+    _input = [[None, 'X', None], [None, None, 'O'], [None, None, None]]
     expected_stdout = ' 0 | X | 2 \n===+===+===\n 3 | 4 | O \n===+===+===\n 6 | 7 | 8 \n\n'
     b = Board(_input)
     ui.output_board(b)

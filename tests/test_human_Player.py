@@ -25,7 +25,7 @@ def test_it_gets_3_first_time():
 def test_it_rejects_3_and_5_accepts_6():
     expected_stdout = open('fixtures/get_human_move_expected_stdout.txt', 'r').read()
 
-    _input = [None, None, None, 'X', 'X', 'O', None, None, None]
+    _input = [[None, None, None], ['X', 'X', 'O'], [None, None, None]]
     b = Board(_input)
 
     human_player = HumanPlayer('O', ui)
