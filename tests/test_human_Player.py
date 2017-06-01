@@ -1,5 +1,8 @@
-import pytest
 import sys
+from StringIO import StringIO
+
+import pytest
+from mock import patch
 
 from human_player import HumanPlayer
 from board import Board
@@ -7,9 +10,8 @@ from console_ui import ConsoleUi
 
 ui = ConsoleUi()
 
+@patch('sys.stdin', StringIO('3\n'))
 def test_it_gets_3_first_time():
-    sys.stdin = open('mock/get_human_move_stdin_1', 'r')
-
     b = Board()
 
     human_player = HumanPlayer('O', ui)
@@ -18,9 +20,10 @@ def test_it_gets_3_first_time():
     human_move = human_player.get_move(b, opponent)
     assert human_move == 3
 
-def test_it_rejects_3_and_5_accepts_6(capsys):
-    sys.stdin = open('mock/get_human_move_stdin_2', 'r')
-    expected_stdout = open('mock/get_human_move_expected_stdout.txt', 'r').read()
+@patch('sys.stdin', StringIO('3\n5\n6\n'))
+@patch('sys.stdout', StringIO())
+def test_it_rejects_3_and_5_accepts_6():
+    expected_stdout = open('fixtures/get_human_move_expected_stdout.txt', 'r').read()
 
     _input = [None, None, None, 'X', 'X', 'O', None, None, None]
     b = Board(_input)
@@ -30,6 +33,5 @@ def test_it_rejects_3_and_5_accepts_6(capsys):
 
     human_move = human_player.get_move(b, opponent)
 
-    out, err = capsys.readouterr()
-    assert out == expected_stdout
+    assert sys.stdout.getvalue() == expected_stdout
 
