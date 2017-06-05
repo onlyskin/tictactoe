@@ -14,7 +14,7 @@ def test_boards_with_different_cells_arent_equal():
 
 def test_flatten_returns_flat_board():
     b = Board([['X', 'O', None], [None, None, 'X'], [None, None, None]])
-    assert b.flatten() == ['X', 'O', None, None, None, 'X', None, None, None]
+    assert b._flatten() == ['X', 'O', None, None, None, 'X', None, None, None]
 
 def test_empty_board_returns_all_positions_as_available():
     b = Board()
@@ -40,7 +40,7 @@ def test_board_can_initialize_from_all_None_cells():
                 [None, None, None],
                 [None, None, None]]
     b = Board(_input)
-    assert b.board_cells == expected
+    assert b._board_cells == expected
 
 def test_board_can_initialize_from_some_filled_cells():
     _input = [['O', None, 'X'], [None, 'X', None], ['O', None, None]]
@@ -48,14 +48,14 @@ def test_board_can_initialize_from_some_filled_cells():
                 [None, 'X', None],
                 ['O', None, None]]
     b = Board(_input)
-    assert b.board_cells == expected
+    assert b._board_cells == expected
 
 def test_board_can_initialize_from_default_argument():
     expected = [[None, None, None],
                 [None, None, None],
                 [None, None, None]]
     b = Board()
-    assert b.board_cells == expected
+    assert b._board_cells == expected
 
 def test_move_puts_marker_in_cell():
     b = Board()
@@ -65,7 +65,7 @@ def test_move_puts_marker_in_cell():
                 [None, None, None],
                 [None, None, None]]
 
-    assert new_board.board_cells == expected
+    assert new_board._board_cells == expected
 
 def test_move_preserves_previous_board_cells():
     _input = [['X', None, None], [None, 'O', None], [None, None, None]]
@@ -76,7 +76,7 @@ def test_move_preserves_previous_board_cells():
                 [None, 'O', None],
                 ['X', None, None]]
 
-    assert new_board.board_cells == expected
+    assert new_board._board_cells == expected
 
 def test_move_raises_index_error_when_cell_already_full():
     _input = [['X', None, None], [None, 'O', None], [None, None, None]]
@@ -92,17 +92,17 @@ def test_board_supports_set_indexing():
 
 def test_is_full_it_returns_false_when_empty():
     b = Board()
-    assert not b.is_full()
+    assert not b._is_full()
 
 def test_is_full_returns_true_when_full():
     _input = [['O', 'X', 'O'], ['O', 'X', 'O'], ['O', 'X', 'O']]
     b = Board(_input)
-    assert b.is_full()
+    assert b._is_full()
 
 def test_is_full_returns_false_when_partly_full():
     _input = [['O', None, 'O'], ['O', 'X', 'O'], ['O', 'X', 'O']]
     b = Board(_input)
-    assert not b.is_full()
+    assert not b._is_full()
 
 def test_is_tie_returns_false_when_empty():
     b = Board()
