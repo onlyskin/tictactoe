@@ -1,49 +1,59 @@
+import sys
+
 from human_player import HumanPlayer
 from computer_player import ComputerPlayer
 
 class ConsoleUi(object):
+    def __init__(self, out_stream=sys.stdout):
+        self._out_stream = out_stream
+
+    def output_to_stream(self, content):
+        self._out_stream.write(content)
 
     def output_init_message(self):
-        print 'Welcome to Tic Tac Toe!'
+        self.output_to_stream('Welcome to Tic Tac Toe!\n')
 
     def output_play_instructions(self):
-        print 'To play in a cell, enter [0-8]:\n'
+        self.output_to_stream('To play in a cell, enter [0-8]:\n\n')
 
     def output_start_game_message(self, board):
-        print
-        print 'Initial board:'
+        self.output_to_stream('\nInitial board:\n')
         self.output_board(board)
         self.output_play_instructions()
 
     def output_start_turn_message(self, player):
-        print "Player {}'s turn:".format(player.marker)
+        output = "Player {}'s turn:\n".format(player.marker)
+        self.output_to_stream(output)
 
     def output_moved_message(self, player, move, board):
-        print 'Player {} moved in cell {}:'.format(player.marker, move)
+        output = 'Player {} moved in cell {}:\n'.format(player.marker, move)
+        self.output_to_stream(output)
         self.output_board(board)
 
     def output_move_not_available_message(self, move):
-        print 'Cell {} is not available, please choose another move:'.format(move)
+        output = 'Cell {} is not available, please choose another move:\n'.format(move)
+        self.output_to_stream(output)
 
     def output_end_message(self, game):
-        print 'Game over!'
+        self.output_to_stream('Game over!\n')
         if game.is_tie():
-            print 'The game was a draw.'
+            self.output_to_stream('The game was a draw.\n')
         else:
-            print 'Player {} won.'.format(game.get_winner())
+            output = 'Player {} won.\n'.format(game.get_winner())
+            self.output_to_stream(output)
 
     def output_board(self, board):
         cells = [board[i] for i in range(9)]
         mapped = [i if cell is None else cell for i, cell in enumerate(cells)]
-        print ' %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n' % \
-            tuple(mapped)
+        self.output_to_stream(' %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n\n' % \
+            tuple(mapped))
 
     def get_input_integer(self):
         user_input = raw_input()
         try:
             user_input = int(user_input)
         except ValueError:
-            print 'Please enter a number.'
+            self.output_to_stream('Please enter a number.\n')
             return self.get_input_integer()
         else:
             return user_input
@@ -54,20 +64,20 @@ class ConsoleUi(object):
         try:
             assert player1.marker != player2.marker
         except AssertionError:
-            print '\nYou must choose different symbols for each player.\nPlease try again:'
+            self.output_to_stream('\nYou must choose different symbols for each player.\nPlease try again:\n')
             return self.get_players()
         else:
             return [player1, player2]
 
     def get_player_type(self):
-        print 'Choose player type [(h)uman or (c)omputer]:'
+        self.output_to_stream('Choose player type [(h)uman or (c)omputer]:\n')
         type = raw_input()
         while type != 'h' and type != 'c':
             return self.get_player_type()
         return type
 
     def get_player_marker(self):
-        print 'Choose a symbol to represent this player:'
+        self.output_to_stream('Choose a symbol to represent this player:\n')
         marker = raw_input()
         while len(marker) != 1:
             marker = raw_input()
@@ -82,7 +92,8 @@ class ConsoleUi(object):
             return ComputerPlayer(marker)
 
     def get_players_in_order(self, player1, player2):
-        print 'Who should start, {} or {}?'.format(player1.marker, player2.marker)
+        output = 'Who should start, {} or {}?\n'.format(player1.marker, player2.marker)
+        self.output_to_stream(output)
         choice = raw_input()
         try:
             assert choice in map(lambda x: x.marker, [player1, player2])
