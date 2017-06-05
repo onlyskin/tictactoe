@@ -4,8 +4,9 @@ from human_player import HumanPlayer
 from computer_player import ComputerPlayer
 
 class ConsoleUi(object):
-    def __init__(self, out_stream=sys.stdout):
+    def __init__(self, out_stream=sys.stdout, get_input=raw_input):
         self._out_stream = out_stream
+        self._get_input = get_input
 
     def output_to_stream(self, content):
         self._out_stream.write(content)
@@ -49,7 +50,7 @@ class ConsoleUi(object):
             tuple(mapped))
 
     def get_input_integer(self):
-        user_input = raw_input()
+        user_input = self._get_input()
         try:
             user_input = int(user_input)
         except ValueError:
@@ -71,16 +72,16 @@ class ConsoleUi(object):
 
     def get_player_type(self):
         self.output_to_stream('Choose player type [(h)uman or (c)omputer]:\n')
-        type = raw_input()
+        type = self._get_input()
         while type != 'h' and type != 'c':
             return self.get_player_type()
         return type
 
     def get_player_marker(self):
         self.output_to_stream('Choose a symbol to represent this player:\n')
-        marker = raw_input()
+        marker = self._get_input()
         while len(marker) != 1:
-            marker = raw_input()
+            marker = self._get_input()
         return marker
 
     def get_player(self):
@@ -94,7 +95,7 @@ class ConsoleUi(object):
     def get_players_in_order(self, player1, player2):
         output = 'Who should start, {} or {}?\n'.format(player1.marker, player2.marker)
         self.output_to_stream(output)
-        choice = raw_input()
+        choice = self._get_input()
         try:
             assert choice in map(lambda x: x.marker, [player1, player2])
         except AssertionError:
