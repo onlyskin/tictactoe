@@ -13,7 +13,7 @@ class Game(object):
         active_player = self.player1
         opponent = self.player2
 
-        while not self.game_is_over():
+        while not self._game_is_over():
             self._run_turn(active_player, opponent)
             active_player, opponent = opponent, active_player
 
@@ -28,14 +28,11 @@ class Game(object):
         self.board = self.board.move(move, active_player.marker)
         self.ui.output_moved_message(active_player, move, self.board)
 
-    def game_has_winner(self):
-        return self.board.is_winner()
+    def _game_is_over(self):
+        return self.board.game_is_over()
 
     def is_tie(self):
         return self.board.is_tie()
-
-    def game_is_over(self):
-        return self.board.game_is_over()
 
     def get_winner(self):
         return self.board.get_winner()
