@@ -4,7 +4,7 @@ class HumanPlayer(object):
         self.marker = marker
         self.ui = ui
 
-    def get_move(self, board, opponent):
+    def get_move(self, board):
         available_positions = board.get_available_positions()
         while True:
             move = self.ui.get_input_integer()

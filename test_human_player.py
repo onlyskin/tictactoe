@@ -15,7 +15,7 @@ def test_it_gets_3_first_time():
     human_player = HumanPlayer('O', ui)
     opponent = HumanPlayer('X', ui)
 
-    human_move = human_player.get_move(b, opponent)
+    human_move = human_player.get_move(b)
     assert human_move == 3
 
 def test_it_rejects_3_and_5_accepts_6():
@@ -25,7 +25,7 @@ def test_it_rejects_3_and_5_accepts_6():
     human_player = HumanPlayer('O', ui)
     opponent = HumanPlayer('X', ui)
 
-    human_move = human_player.get_move(b, opponent)
+    human_move = human_player.get_move(b)
     expected_output = open('fixtures/get_human_move_expected_output.txt', 'r').read()
 
     assert ui._out_stream.getvalue() == expected_output
