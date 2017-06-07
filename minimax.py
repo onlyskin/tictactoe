@@ -6,10 +6,10 @@ class Node(object):
     def __str__(self):
         return 'move: ' + str(self.move) + ', score: ' + str(self.score)
 
-def maxkey(o):
+def _maxkey(o):
     return o.score
 
-def get_score(board, active_player_marker):
+def _get_score(board, active_player_marker):
     if not board.game_is_over():
         raise ValueError
     if board.is_tie():
@@ -23,7 +23,7 @@ def get_score(board, active_player_marker):
 def minimax(board, active_player_marker, opponent_marker, depth=0):
 
     if board.game_is_over():
-        score = get_score(board, active_player_marker)
+        score = _get_score(board, active_player_marker)
         return Node(score=score)
 
     next_nodes = []
@@ -37,8 +37,9 @@ def minimax(board, active_player_marker, opponent_marker, depth=0):
         next_nodes.append(node)
 
     if depth % 2 == 0:
-        best_node = max(next_nodes, key=maxkey)
+        best_node = max(next_nodes, key=_maxkey)
         return best_node
     else:
-        best_node = min(next_nodes, key=maxkey)
+        best_node = min(next_nodes, key=_maxkey)
         return best_node
+
