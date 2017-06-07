@@ -131,22 +131,6 @@ def test_output_board_returns_string_when_all_empty():
     ui.output_board(b)
     assert ui._out_stream.getvalue() == expected_output
 
-def test_output_board_returns_string_when_0_X():
-    ui = ConsoleUi(StringIO())
-    _input = [['X', None, None], [None, None, None], [None, None, None]]
-    expected_output = ' X | 1 | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
-    b = Board(_input)
-    ui.output_board(b)
-    assert ui._out_stream.getvalue() == expected_output
-
-def test_output_board_returns_string_when_1_X():
-    ui = ConsoleUi(StringIO())
-    _input = [[None, 'X', None], [None, None, None], [None, None, None]]
-    expected_output = ' 0 | X | 2 \n===+===+===\n 3 | 4 | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
-    b = Board(_input)
-    ui.output_board(b)
-    assert ui._out_stream.getvalue() == expected_output
-
 def test_output_board_returns_string_when_2_X():
     ui = ConsoleUi(StringIO())
     _input = [[None, None, 'X'], [None, None, None], [None, None, None]]
