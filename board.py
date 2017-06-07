@@ -59,7 +59,7 @@ class Board(object):
     def move(self, position, marker):
         if position not in self.get_available_positions():
             raise IndexError
-        new_board = Board(self._board_cells)
+        new_board = Board(self._board_cells, p1=self._p1, p2=self._p2)
         new_board[position] = marker
         return new_board
 

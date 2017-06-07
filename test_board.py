@@ -85,6 +85,13 @@ def test_move_raises_index_error_when_cell_already_full():
     with pytest.raises(IndexError):
         b.move(0, 'X')
 
+def test_move_copies_over_existing_player_markers():
+    _input = [['A', None, None], [None, 'B', None], [None, None, None]]
+    b = Board(_input, p1='A', p2='B')
+    new_board = b.move(6, 'A')
+    assert new_board._p1 == 'A'
+    assert new_board._p2 == 'B'
+
 def test_board_supports_set_indexing():
     b = Board()
     b[0] = 'X'
