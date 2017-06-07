@@ -20,7 +20,9 @@ def _get_score(board, active_player_marker):
         else:
             return -10
 
-def minimax(board, active_player_marker, depth=0):
+def minimax(board, active_player_marker=None, depth=0):
+    if depth == 0:
+        active_player_marker = board.get_current_player_marker()
 
     if board.game_is_over():
         score = _get_score(board, active_player_marker)

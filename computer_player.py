@@ -6,5 +6,5 @@ class ComputerPlayer(object):
         self.marker = marker
 
     def get_move(self, board):
-        best_node = minimax(board, self.marker)
+        best_node = minimax(board)
         return best_node.move

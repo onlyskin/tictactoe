@@ -6,31 +6,31 @@ from board import Board
 def test_it_knows_opponent_will_take_winning_move():
     cells = [['O', None, 'X'], ['X', None, None], ['X', 'O', 'O']]
     b = Board(cells, 'X', 'O')
-    minimax_result = minimax(b, 'X')
+    minimax_result = minimax(b)
     assert minimax_result.move == 4
 
 def test_it_blocks_opponent_winning_move():
     cells = [['O', 'X', 'O'], [None, 'X', 'O'], ['X', None, 'X']]
     b = Board(cells, 'X', 'O')
-    minimax_result = minimax(b, 'O')
+    minimax_result = minimax(b)
     assert minimax_result.move == 7
 
 def test_it_chooses_winning_move():
     cells = [['O', 'X', 'O'], [None, 'O', 'O'], ['X', None, 'X']]
     b = Board(cells, 'O', 'X')
-    minimax_result = minimax(b, 'X')
+    minimax_result = minimax(b)
     assert minimax_result.move == 7
 
 def test_it_blocks_opponent_winning_move_3_levels():
     cells = [['O', 'X', 'O'], [None, None, 'O'], ['X', None, 'X']]
     b = Board(cells, 'O', 'X')
-    minimax_result = minimax(b, 'O')
+    minimax_result = minimax(b)
     assert minimax_result.move == 7
 
 def test_it_blocks_opponent_winning_move_near_start():
     cells = [['O', None, 'O'], ['X', None, None], [None, None, None]]
     b = Board(cells, 'O', 'X')
-    minimax_result = minimax(b, 'X')
+    minimax_result = minimax(b)
     assert minimax_result.move == 1
 
 def test_get_score_raises_value_error_on_unfinished_board_no_winner():
