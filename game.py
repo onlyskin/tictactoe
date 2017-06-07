@@ -3,7 +3,7 @@ from console_ui import ConsoleUi
 
 class Game(object):
     def __init__(self, ui, player1, player2):
-        self.board = Board()
+        self.board = Board(p1=player1, p2=player2)
         self.ui = ui
         self.player1 = player1
         self.player2 = player2

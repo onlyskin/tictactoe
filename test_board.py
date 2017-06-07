@@ -175,3 +175,30 @@ def test_it_returns_true_when_diagonal_1_is_X():
 def test_it_returns_true_when_diagonal_2_is_O():
     b = Board([[None, None, 'O'], [None, 'O', None], ['O', None, None]])
     assert b.is_winner()
+
+def test_it_gets_current_player_as_A():
+    b = Board(p1='A', p2='B')
+    assert b.get_current_player_marker() == 'A'
+
+def test_it_gets_current_player_as_B():
+    b = Board(p1='B', p2='Y')
+    assert b.get_current_player_marker() == 'B'
+
+def test_it_gets_current_player_when_one_turn():
+    b = Board(p1='B', p2='Y')
+    b[1] = 'B'
+    assert b.get_current_player_marker() == 'Y'
+
+def test_it_gets_current_player_when_three_turns():
+    b = Board(p1='B', p2='Y')
+    b[1] = 'B'
+    b[2] = 'Y'
+    b[3] = 'B'
+    assert b.get_current_player_marker() == 'Y'
+
+def test_it_gets_current_player_when_two_turns():
+    b = Board(p1='B', p2='Y')
+    b[1] = 'B'
+    b[2] = 'Y'
+    assert b.get_current_player_marker() == 'B'
+

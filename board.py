@@ -1,6 +1,6 @@
 class Board(object):
 
-    def __init__(self, board_cells=None):
+    def __init__(self, board_cells=None, p1='X', p2='O'):
         if board_cells == None:
             board_cells = [[None, None, None],
                             [None, None, None],
@@ -13,6 +13,8 @@ class Board(object):
         for i, row in enumerate(board_cells):
             for j, cell in enumerate(row):
                 self._board_cells[i][j] = cell
+        self._p1 = p1
+        self._p2 = p2
 
     def __getitem__(self, key):
         return self._board_cells[key / 3][key % 3]
@@ -65,3 +67,12 @@ class Board(object):
         flat = self._flatten()
         available_cells = [i for i, cell in enumerate(flat) if cell == None]
         return available_cells
+
+    def get_current_player_marker(self):
+        turns_taken = len([self[i] for i in range(9) if self[i] is not None])
+        if turns_taken % 2 == 0:
+            return self._p1
+        else:
+            return self._p2
+
+
