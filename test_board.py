@@ -59,7 +59,7 @@ def test_board_can_initialize_from_default_argument():
 
 def test_move_puts_marker_in_cell():
     b = Board()
-    new_board = b.move(0, 'X')
+    new_board = b.move(0)
 
     expected = [['X', None, None],
                 [None, None, None],
@@ -70,7 +70,7 @@ def test_move_puts_marker_in_cell():
 def test_move_preserves_previous_board_cells():
     _input = [['X', None, None], [None, 'O', None], [None, None, None]]
     b = Board(_input)
-    new_board = b.move(6, 'X')
+    new_board = b.move(6)
 
     expected = [['X', None, None],
                 [None, 'O', None],
@@ -83,12 +83,12 @@ def test_move_raises_index_error_when_cell_already_full():
     b = Board(_input)
 
     with pytest.raises(IndexError):
-        b.move(0, 'X')
+        b.move(0)
 
 def test_move_copies_over_existing_player_markers():
     _input = [['A', None, None], [None, 'B', None], [None, None, None]]
     b = Board(_input, p1='A', p2='B')
-    new_board = b.move(6, 'A')
+    new_board = b.move(6)
     assert new_board._p1 == 'A'
     assert new_board._p2 == 'B'
 

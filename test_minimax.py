@@ -4,28 +4,33 @@ from minimax import minimax, _get_score
 from board import Board
 
 def test_it_knows_opponent_will_take_winning_move():
-    b = Board([['O', None, 'X'], ['X', None, None], ['X', 'O', 'O']])
-    minimax_result = minimax(b, 'X', 'O')
+    cells = [['O', None, 'X'], ['X', None, None], ['X', 'O', 'O']]
+    b = Board(cells, 'X', 'O')
+    minimax_result = minimax(b, 'X')
     assert minimax_result.move == 4
 
 def test_it_blocks_opponent_winning_move():
-    b = Board([['O', 'X', 'O'], [None, 'X', 'O'], ['X', None, 'X']])
-    minimax_result = minimax(b, 'O', 'X')
+    cells = [['O', 'X', 'O'], [None, 'X', 'O'], ['X', None, 'X']]
+    b = Board(cells, 'X', 'O')
+    minimax_result = minimax(b, 'O')
     assert minimax_result.move == 7
 
 def test_it_chooses_winning_move():
-    b = Board([['O', 'X', 'O'], [None, 'O', 'O'], ['X', None, 'X']])
-    minimax_result = minimax(b, 'X', 'O')
+    cells = [['O', 'X', 'O'], [None, 'O', 'O'], ['X', None, 'X']]
+    b = Board(cells, 'O', 'X')
+    minimax_result = minimax(b, 'X')
     assert minimax_result.move == 7
 
 def test_it_blocks_opponent_winning_move_3_levels():
-    b = Board([['O', 'X', 'O'], [None, None, 'O'], ['X', None, 'X']])
-    minimax_result = minimax(b, 'O', 'X')
+    cells = [['O', 'X', 'O'], [None, None, 'O'], ['X', None, 'X']]
+    b = Board(cells, 'O', 'X')
+    minimax_result = minimax(b, 'O')
     assert minimax_result.move == 7
 
 def test_it_blocks_opponent_winning_move_near_start():
-    b = Board([['O', None, 'O'], ['X', None, None], [None, None, None]])
-    minimax_result = minimax(b, 'X', 'O')
+    cells = [['O', None, 'O'], ['X', None, None], [None, None, None]]
+    b = Board(cells, 'O', 'X')
+    minimax_result = minimax(b, 'X')
     assert minimax_result.move == 1
 
 def test_get_score_raises_value_error_on_unfinished_board_no_winner():

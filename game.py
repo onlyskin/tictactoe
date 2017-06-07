@@ -3,7 +3,7 @@ from console_ui import ConsoleUi
 
 class Game(object):
     def __init__(self, ui, player1, player2):
-        self.board = Board(p1=player1, p2=player2)
+        self.board = Board(p1=player1.marker, p2=player2.marker)
         self.ui = ui
         self.player1 = player1
         self.player2 = player2
@@ -25,7 +25,7 @@ class Game(object):
 
     def _move(self, active_player, opponent):
         move = active_player.get_move(self.board, opponent)
-        self.board = self.board.move(move, active_player.marker)
+        self.board = self.board.move(move)
         self.ui.output_moved_message(active_player, move, self.board)
 
     def _game_is_over(self):

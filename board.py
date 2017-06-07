@@ -56,10 +56,11 @@ class Board(object):
     def game_is_over(self):
         return self.is_winner() or self.is_tie()
 
-    def move(self, position, marker):
+    def move(self, position):
         if position not in self.get_available_positions():
             raise IndexError
         new_board = Board(self._board_cells, p1=self._p1, p2=self._p2)
+        marker = self.get_current_player_marker()
         new_board[position] = marker
         return new_board
 

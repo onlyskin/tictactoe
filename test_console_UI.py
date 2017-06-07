@@ -49,10 +49,10 @@ def test_it_gets_A_from_stdin():
 
 def test_it_prints_A_moved_in_4():
     ui = ConsoleUi(StringIO())
-    b = Board()
+    b = Board(p1='A')
     player = HumanPlayer('A', ui)
     move = 4
-    b = b.move(move, player.marker)
+    b = b.move(move)
     ui.output_moved_message(player, move, b)
     expected_output = 'Player A moved in cell 4:\n 0 | 1 | 2 \n===+===+===\n 3 | A | 5 \n===+===+===\n 6 | 7 | 8 \n\n'
     assert ui._out_stream.getvalue() == expected_output
@@ -72,7 +72,9 @@ def test_move_not_available_message():
 
 def test_end_message_when_draw():
     ui = ConsoleUi(StringIO())
-    g = Game(ui, '', '')
+    p1 = HumanPlayer('X', ui)
+    p2 = HumanPlayer('O', ui)
+    g = Game(ui, p1, p2)
     g.board = Board([['O', 'X', 'X'], ['X', 'X', 'O'], ['O', 'O', 'X']])
     expected_output = 'Game over!\nThe game was a draw.\n'
     ui.output_end_message(g)
@@ -80,7 +82,9 @@ def test_end_message_when_draw():
 
 def test_end_message_when_player_X_win():
     ui = ConsoleUi(StringIO())
-    g = Game(ui, '', '')
+    p1 = HumanPlayer('X', ui)
+    p2 = HumanPlayer('O', ui)
+    g = Game(ui, p1, p2)
     g.board = Board([['X', 'O', 'X'], ['O', 'O', 'X'], ['O', 'X', 'X']])
     expected_output = 'Game over!\nPlayer X won.\n'
     ui.output_end_message(g)
@@ -174,4 +178,6 @@ def test_output_board_returns_string_when_1_X_5_O():
     b = Board(_input)
     ui.output_board(b)
     assert ui._out_stream.getvalue() == expected_output
+
+
 

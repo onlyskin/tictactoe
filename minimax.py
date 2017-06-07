@@ -20,7 +20,7 @@ def _get_score(board, active_player_marker):
         else:
             return -10
 
-def minimax(board, active_player_marker, opponent_marker, depth=0):
+def minimax(board, active_player_marker, depth=0):
 
     if board.game_is_over():
         score = _get_score(board, active_player_marker)
@@ -28,11 +28,8 @@ def minimax(board, active_player_marker, opponent_marker, depth=0):
 
     next_nodes = []
     for position in board.get_available_positions():
-        if depth % 2 == 0:
-            new_board = board.move(position, active_player_marker)
-        else:
-            new_board = board.move(position, opponent_marker)
-        best_node = minimax(new_board, active_player_marker, opponent_marker, depth + 1)
+        new_board = board.move(position)
+        best_node = minimax(new_board, active_player_marker, depth + 1)
         node = Node(move=position, score=best_node.score)
         next_nodes.append(node)
 
