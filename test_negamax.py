@@ -3,9 +3,15 @@ import pytest
 from negamax import negamax
 from board import Board
 
-def test_it_chooses_winning_move_and_blocks_opponent():
+def test_it_chooses_winning_move_and_blocks_opponent_when_first_player():
     cells = [['O', None, 'X'], ['X', None, None], ['X', 'O', 'O']]
     b = Board(cells, 'X', 'O')
+    negamax_result = negamax(b)
+    assert negamax_result.move == 4
+
+def test_it_chooses_winning_move_and_blocks_opponent_when_second_player():
+    cells = [['O', None, 'X'], ['X', None, None], ['X', 'O', 'O']]
+    b = Board(cells, 'O', 'X')
     negamax_result = negamax(b)
     assert negamax_result.move == 4
 
