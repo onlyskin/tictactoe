@@ -1,3 +1,6 @@
+winning_score = 10
+losing_score = -10
+
 class Node(object):
     def __init__(self, move=None, score=None):
         self.move = move
@@ -10,9 +13,9 @@ def _get_score(board):
         return 0
     if board.is_winner():
         if board.get_winner() == board.get_current_player_marker():
-            return 10
+            return winning_score
         else:
-            return -10
+            return losing_score
 
 def negamax(board):
     if board.game_is_over():
@@ -28,5 +31,8 @@ def negamax(board):
         if x.score > best_score:
             best_score = x.score
             best_position = position
+        # if we have find a winning position, return immediately
+        if best_score == winning_score:
+            break
 
     return Node(move=best_position, score=best_score)
